@@ -28,11 +28,12 @@
     
     if ([schoolName length] == 0)
     {
+        self.schoolName = @"University of South  Carolina";
         [self performSegueWithIdentifier:@"segueChangeTeam" sender:self];
     }
     
     self.schoolName = schoolName;
-    //self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
+    self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
 
     
 }

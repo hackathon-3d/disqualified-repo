@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399048713.558504"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
          landmarkName = "-verifySchoolIsSelected"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399048713.558504"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
          landmarkName = "-verifySchoolIsSelected"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399054209.144118"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,20 +86,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399054209.923225"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "-viewDidAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399054210.621043"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "55"
@@ -112,7 +99,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399054211.172578"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "56"
@@ -125,7 +112,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399054211.734557"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "57"
@@ -138,7 +125,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399054212.398399"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "58"
@@ -151,11 +138,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/ViewController.m"
-         timestampString = "399054227.501505"
+         timestampString = "399054844.323222"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-viewDidAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Let&apos;s Tailgate/ViewController.m"
+         timestampString = "399054844.323222"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -183,6 +183,19 @@
          startingLineNumber = "207"
          endingLineNumber = "207"
          landmarkName = "-getSchoolByName:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Let&apos;s Tailgate/DBManager.m"
+         timestampString = "399054952.328676"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
+         landmarkName = "+getSharedInstance"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

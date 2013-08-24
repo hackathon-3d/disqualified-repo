@@ -15,6 +15,7 @@
 		463B791017C8F23B00D0E904 /* weatherIcons in Resources */ = {isa = PBXBuildFile; fileRef = 463B790F17C8F23B00D0E904 /* weatherIcons */; };
 		463B791F17C9109A00D0E904 /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791B17C9104200D0E904 /* Exo-Bold.ttf */; };
 		463B792017C9109A00D0E904 /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791C17C9104200D0E904 /* Exo-Regular.ttf */; };
+		463B792217C918CB00D0E904 /* master.db in Resources */ = {isa = PBXBuildFile; fileRef = 463B792117C918CB00D0E904 /* master.db */; };
 		46EB918617C840FE0038B07E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918517C840FE0038B07E /* UIKit.framework */; };
 		46EB918817C840FE0038B07E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918717C840FE0038B07E /* Foundation.framework */; };
 		46EB918A17C840FE0038B07E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918917C840FE0038B07E /* CoreGraphics.framework */; };
@@ -33,7 +34,6 @@
 		BCE061BF17C912280061330F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE061BE17C912280061330F /* Icon@2x.png */; };
 		BCE16F5617C86B7900104584 /* create.sql in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5317C86B7900104584 /* create.sql */; };
 		BCE16F5717C86B7900104584 /* makedb.sh in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5417C86B7900104584 /* makedb.sh */; };
-		BCE16F5817C86B7900104584 /* master.db in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5517C86B7900104584 /* master.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +47,7 @@
 		463B790F17C8F23B00D0E904 /* weatherIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = weatherIcons; sourceTree = "<group>"; };
 		463B791B17C9104200D0E904 /* Exo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Bold.ttf"; sourceTree = "<group>"; };
 		463B791C17C9104200D0E904 /* Exo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Regular.ttf"; sourceTree = "<group>"; };
+		463B792117C918CB00D0E904 /* master.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = master.db; sourceTree = "<group>"; };
 		46EB918217C840FE0038B07E /* Let's Tailgate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Tailgate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EB918517C840FE0038B07E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46EB918717C840FE0038B07E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,7 +73,6 @@
 		BCE061BE17C912280061330F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		BCE16F5317C86B7900104584 /* create.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = create.sql; sourceTree = "<group>"; };
 		BCE16F5417C86B7900104584 /* makedb.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = makedb.sh; sourceTree = "<group>"; };
-		BCE16F5517C86B7900104584 /* master.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = master.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +129,7 @@
 		46EB918B17C840FE0038B07E /* Let's Tailgate */ = {
 			isa = PBXGroup;
 			children = (
+				463B792117C918CB00D0E904 /* master.db */,
 				463B791B17C9104200D0E904 /* Exo-Bold.ttf */,
 				463B791C17C9104200D0E904 /* Exo-Regular.ttf */,
 				463B790F17C8F23B00D0E904 /* weatherIcons */,
@@ -155,7 +156,6 @@
 			children = (
 				BCE16F5317C86B7900104584 /* create.sql */,
 				BCE16F5417C86B7900104584 /* makedb.sh */,
-				BCE16F5517C86B7900104584 /* master.db */,
 				46EB918D17C840FE0038B07E /* Let's Tailgate-Info.plist */,
 				46EB918E17C840FE0038B07E /* InfoPlist.strings */,
 				46EB919117C840FE0038B07E /* main.m */,
@@ -227,10 +227,10 @@
 				46EB919F17C840FE0038B07E /* MainStoryboard.storyboard in Resources */,
 				BCE16F5617C86B7900104584 /* create.sql in Resources */,
 				BCE16F5717C86B7900104584 /* makedb.sh in Resources */,
-				BCE16F5817C86B7900104584 /* master.db in Resources */,
 				463B791017C8F23B00D0E904 /* weatherIcons in Resources */,
 				BCE061BD17C912260061330F /* Icon.png in Resources */,
 				BCE061BF17C912280061330F /* Icon@2x.png in Resources */,
+				463B792217C918CB00D0E904 /* master.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
