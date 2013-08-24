@@ -100,7 +100,7 @@
     [layer addSublayer:bottomBorder];
     [layer addSublayer:rightBorder];
     
-    //[self getWeatherData];
+    [self getWeatherData];
     
     
 }
