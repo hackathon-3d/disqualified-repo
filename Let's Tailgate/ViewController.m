@@ -23,6 +23,7 @@
     [self.webView setDelegate:self];
     
     [self.navBarTitle setTitle: [self getSchoolName]];
+    [self getWeatherData];
 }
 
 #pragma mark StoryBoard Events
@@ -33,6 +34,23 @@
 }
 
 #pragma mark Data Wrappers
+
+- (void) getWeatherData
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *dataURL = [NSURL URLWithString:@"http://api.wunderground.com/api/fca034c5c94b1ad7/forecast10day/q/CA/San_Francisco.json"];
+        NSData *data = [NSData dataWithContentsOfURL: dataURL];
+        [self performSelectorOnMainThread:@selector(fetchedWeatherData:) withObject:data waitUntilDone:YES];
+    });
+}
+
+- (void) fetchedWeatherData:(NSData *)responseData
+{
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error: &error];
+    
+    NSLog(@"%@", json);
+}
 
 - (void) buildSchoolView
 {
