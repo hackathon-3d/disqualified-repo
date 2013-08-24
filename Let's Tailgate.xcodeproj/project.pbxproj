@@ -15,6 +15,7 @@
 		463B791017C8F23B00D0E904 /* weatherIcons in Resources */ = {isa = PBXBuildFile; fileRef = 463B790F17C8F23B00D0E904 /* weatherIcons */; };
 		463B791F17C9109A00D0E904 /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791B17C9104200D0E904 /* Exo-Bold.ttf */; };
 		463B792017C9109A00D0E904 /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791C17C9104200D0E904 /* Exo-Regular.ttf */; };
+		463B792517C91E1900D0E904 /* poop.db in Resources */ = {isa = PBXBuildFile; fileRef = 463B792317C91BA200D0E904 /* poop.db */; };
 		46EB918617C840FE0038B07E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918517C840FE0038B07E /* UIKit.framework */; };
 		46EB918817C840FE0038B07E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918717C840FE0038B07E /* Foundation.framework */; };
 		46EB918A17C840FE0038B07E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918917C840FE0038B07E /* CoreGraphics.framework */; };
@@ -46,7 +47,7 @@
 		463B790F17C8F23B00D0E904 /* weatherIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = weatherIcons; sourceTree = "<group>"; };
 		463B791B17C9104200D0E904 /* Exo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Bold.ttf"; sourceTree = "<group>"; };
 		463B791C17C9104200D0E904 /* Exo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Regular.ttf"; sourceTree = "<group>"; };
-		463B792317C91BA200D0E904 /* poop.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = poop.db; sourceTree = "<group>"; };
+		463B792317C91BA200D0E904 /* poop.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = poop.db; path = "Let's Tailgate/poop.db"; sourceTree = "<group>"; };
 		46EB918217C840FE0038B07E /* Let's Tailgate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Tailgate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EB918517C840FE0038B07E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46EB918717C840FE0038B07E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,6 +96,7 @@
 		46EB917917C840FE0038B07E = {
 			isa = PBXGroup;
 			children = (
+				463B792317C91BA200D0E904 /* poop.db */,
 				BCE061BE17C912280061330F /* Icon@2x.png */,
 				BCE061BC17C912260061330F /* Icon.png */,
 				46EB918B17C840FE0038B07E /* Let's Tailgate */,
@@ -128,7 +130,6 @@
 		46EB918B17C840FE0038B07E /* Let's Tailgate */ = {
 			isa = PBXGroup;
 			children = (
-				463B792317C91BA200D0E904 /* poop.db */,
 				463B791B17C9104200D0E904 /* Exo-Bold.ttf */,
 				463B791C17C9104200D0E904 /* Exo-Regular.ttf */,
 				463B790F17C8F23B00D0E904 /* weatherIcons */,
@@ -217,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463B792517C91E1900D0E904 /* poop.db in Resources */,
 				463B791F17C9109A00D0E904 /* Exo-Bold.ttf in Resources */,
 				463B792017C9109A00D0E904 /* Exo-Regular.ttf in Resources */,
 				46EB919017C840FE0038B07E /* InfoPlist.strings in Resources */,
