@@ -20,6 +20,9 @@
 		46EB919F17C840FE0038B07E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46EB919D17C840FE0038B07E /* MainStoryboard.storyboard */; };
 		46EB91A217C840FE0038B07E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB91A117C840FE0038B07E /* ViewController.m */; };
 		46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB91AB17C84C900038B07E /* TeamsViewController.m */; };
+		BCE16F5617C86B7900104584 /* create.sql in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5317C86B7900104584 /* create.sql */; };
+		BCE16F5717C86B7900104584 /* makedb.sh in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5417C86B7900104584 /* makedb.sh */; };
+		BCE16F5817C86B7900104584 /* master.db in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5517C86B7900104584 /* master.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		46EB91A117C840FE0038B07E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		46EB91AA17C84C900038B07E /* TeamsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsViewController.h; sourceTree = "<group>"; };
 		46EB91AB17C84C900038B07E /* TeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsViewController.m; sourceTree = "<group>"; };
+		BCE16F5317C86B7900104584 /* create.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = create.sql; sourceTree = "<group>"; };
+		BCE16F5417C86B7900104584 /* makedb.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = makedb.sh; sourceTree = "<group>"; };
+		BCE16F5517C86B7900104584 /* master.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = master.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 		46EB918C17C840FE0038B07E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCE16F5317C86B7900104584 /* create.sql */,
+				BCE16F5417C86B7900104584 /* makedb.sh */,
+				BCE16F5517C86B7900104584 /* master.db */,
 				46EB918D17C840FE0038B07E /* Let's Tailgate-Info.plist */,
 				46EB918E17C840FE0038B07E /* InfoPlist.strings */,
 				46EB919117C840FE0038B07E /* main.m */,
@@ -172,6 +181,9 @@
 				46EB919A17C840FE0038B07E /* Default@2x.png in Resources */,
 				46EB919C17C840FE0038B07E /* Default-568h@2x.png in Resources */,
 				46EB919F17C840FE0038B07E /* MainStoryboard.storyboard in Resources */,
+				BCE16F5617C86B7900104584 /* create.sql in Resources */,
+				BCE16F5717C86B7900104584 /* makedb.sh in Resources */,
+				BCE16F5817C86B7900104584 /* master.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
