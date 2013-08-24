@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
+#import "TwitterFeed.h"
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
 
 @property NSDictionary *gameInfo;
+@property TwitterFeed *twitterFeed;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;

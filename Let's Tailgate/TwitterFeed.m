@@ -10,14 +10,15 @@
 
 @implementation TwitterFeed
 
-// Constants
 NSString *apiURL = @"https://api.twitter.com/1.1/search/tweets.json";
 NSString const *tweetCount = @"25";
+NSString const *tweetKeyword = @"#reggae";
 
 - (TwitterFeed *) init
 {
     self.accountStore = [[ACAccountStore alloc] init];
     self.twitterAccount = [[ACAccount alloc] init];
+    self.lastMessageID = @"1";
     return [super init];
 }
 
@@ -28,85 +29,25 @@ NSString const *tweetCount = @"25";
 
 - (NSString *) getTwitterMessagesAsJSON:(NSString *) filter
 {
-    if ([self hasAccessToTwitter])
-    {
-        ACAccountType *twitterAccountType = [self.accountStore
-                                             accountTypeWithAccountTypeIdentifier:
-                                             SLServiceTypeTwitter];
-        
-        [self.accountStore
-         requestAccessToAccountsWithType:twitterAccountType
-         options:NULL
-         completion:^(BOOL granted, NSError *error) {
-             if (granted) {
-                 //  Step 2:  Create a request
-                 NSArray *twitterAccounts =
-                 [self.accountStore accountsWithAccountType:twitterAccountType];
-                 NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
-                               @"/1.1/search/tweets.json"];
-                 
-                 NSDictionary *params = @{@"q" : @"USC",
-                                          @"count" : tweetCount,
-                                          @"since_id": self.lastMessageID};
-                 SLRequest *request =
-                 [SLRequest requestForServiceType:SLServiceTypeTwitter
-                                    requestMethod:SLRequestMethodGET
-                                              URL:url
-                                       parameters:params];
-                 
-                 //  Attach an account to the request
-                 [request setAccount:[twitterAccounts lastObject]];
-                 
-                 //  Step 3:  Execute the request
-                 [request performRequestWithHandler:^(NSData *responseData,
-                                                      NSHTTPURLResponse *urlResponse,
-                                                      NSError *error) {
-                     if (responseData) {
-                         if (urlResponse.statusCode >= 200 && urlResponse.statusCode < 300) {
-                             NSError *jsonError;
-                             NSDictionary *timelineData =
-                             [NSJSONSerialization
-                              JSONObjectWithData:responseData
-                              options:NSJSONReadingAllowFragments error:&jsonError];
-                             
-                             if (timelineData) {
-                                 NSLog(@"Timeline Response: %@\n", timelineData);
-                             }
-                             else {
-                                 // Our JSON deserialization went awry
-                                 NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
-                             }
-                         }
-                         else {
-                             // The server did not respond successfully... were we rate-limited?
-                             NSLog(@"The response status code is %d", urlResponse.statusCode);
-                         }
-                     }
-                 }];
-             }
-             else {
-                 // Access was not granted, or an error occurred
-                 NSLog(@"%@", [error localizedDescription]);
-             }
-         }];
-    }
+    NSString *jsonData = nil;
     
-    return @"";
+    [self searchForHashTag:filter];
+    
+    return jsonData;
 }
 
-
-
-/**
 - (void) authorizeTwitterAccount:(void(^)(void))blk
 {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier: SLServiceTypeTwitter];
     
+    NSLog(@"Checking twitter account");
+    
     [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
         if (granted)
         {
             NSArray *accounts = [accountStore accountsWithAccountType:accountType];
-            self->twitterAccount = [accounts lastObject];
+            self.twitterAccount = [accounts lastObject];
             blk();
         }
     }];
@@ -134,28 +75,29 @@ NSString const *tweetCount = @"25";
     }];
 }
 
-- (void) appendTwitterMessages:(NSDictionary *) data
+- (void) appendTwitterMessages:(NSArray *) data
 {
-    
+    NSLog(@"%@", data);
+    self.twitterMessages = [[NSMutableArray alloc] initWithArray: data];
 }
 
-- (void) searchForHashTag
+- (void) searchForHashTag: (NSString *)hashTag
 {
     [self authorizeTwitterAccount:^{
         NSURL *url = [NSURL URLWithString: apiURL];
         
-        NSDictionary *params = @{@"q" : @"USC",
+        NSDictionary *params = @{@"q" : hashTag,
                                  @"count" : tweetCount,
-                                 @"since_id": self->lastMessageID};
+                                 @"since_id": self.lastMessageID};
         
-        NSLog(@"Getting messages since ID: %@", self->lastMessageID);
+        NSLog(@"Getting messages since ID: %@", self.lastMessageID);
         
         SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                 requestMethod:SLRequestMethodGET
                                                           URL:url
                                                    parameters:params];
         
-        [request setAccount:self->twitterAccount];
+        [request setAccount:self.twitterAccount];
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         
@@ -164,7 +106,6 @@ NSString const *tweetCount = @"25";
     }];
     
 }
-**/
 
 
 @end

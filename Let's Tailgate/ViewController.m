@@ -19,6 +19,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.twitterFeed = [[TwitterFeed alloc] init];
+    
     
     // Initialize Controls
     [self.webView setDelegate:self];
@@ -28,11 +30,17 @@
     // Populate Data
     [self setGameInformation];
     [self getWeatherData];
+    [self getTwitterFeed];
 }
 
 - (void) setSchoolInformation
 {
     
+}
+
+- (void) getTwitterFeed
+{
+    [self.twitterFeed getTwitterMessagesAsJSON:@"USC"];
 }
 
 - (void) setGameInformation
@@ -94,7 +102,11 @@
 
 - (void) buildSchoolView
 {
+    [self setGameInformation];
+    [self getWeatherData];
+    [self getTwitterFeed];
     [self.navBarTitle setTitle: [self getSchoolName]];
+    
 }
 
 - (NSString *) getSchoolName

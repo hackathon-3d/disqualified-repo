@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/TwitterFeed.h"
-         timestampString = "399014809.030927"
+         timestampString = "399019038.126984"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "22"
-         endingLineNumber = "22"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
          landmarkName = "-getTwitterMessagesAsJSON:"
          landmarkType = "4">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/TwitterFeed.m"
-         timestampString = "399018365.707183"
+         timestampString = "399019826.444151"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "27"
+         endingLineNumber = "27"
          landmarkName = "-hasAccessToTwitter"
          landmarkType = "5">
       </FileBreakpoint>
