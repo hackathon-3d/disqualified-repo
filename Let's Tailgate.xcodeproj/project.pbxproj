@@ -18,6 +18,7 @@
 		46EB919C17C840FE0038B07E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46EB919B17C840FE0038B07E /* Default-568h@2x.png */; };
 		46EB919F17C840FE0038B07E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46EB919D17C840FE0038B07E /* MainStoryboard.storyboard */; };
 		46EB91A217C840FE0038B07E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB91A117C840FE0038B07E /* ViewController.m */; };
+		46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB91AB17C84C900038B07E /* TeamsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		46EB919E17C840FE0038B07E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		46EB91A017C840FE0038B07E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		46EB91A117C840FE0038B07E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		46EB91AA17C84C900038B07E /* TeamsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsViewController.h; sourceTree = "<group>"; };
+		46EB91AB17C84C900038B07E /* TeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				46EB919D17C840FE0038B07E /* MainStoryboard.storyboard */,
 				46EB91A017C840FE0038B07E /* ViewController.h */,
 				46EB91A117C840FE0038B07E /* ViewController.m */,
+				46EB91AA17C84C900038B07E /* TeamsViewController.h */,
+				46EB91AB17C84C900038B07E /* TeamsViewController.m */,
 				46EB918C17C840FE0038B07E /* Supporting Files */,
 			);
 			path = "Let's Tailgate";
@@ -176,6 +181,7 @@
 				46EB919217C840FE0038B07E /* main.m in Sources */,
 				46EB919617C840FE0038B07E /* AppDelegate.m in Sources */,
 				46EB91A217C840FE0038B07E /* ViewController.m in Sources */,
+				46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

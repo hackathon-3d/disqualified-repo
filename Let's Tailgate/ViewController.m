@@ -19,10 +19,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    UINavigationItem *title = [[UINavigationItem alloc] initWithTitle:@"Let's Tailgate"];
-    [self.navBar pushNavigationItem:title animated:YES];
-    
+    // Initialize Controls
     [self.webView setDelegate:self];
+    
+    [self.navBarTitle setTitle: [self getSchoolName]];
+}
+
+#pragma mark Data Wrappers
+
+- (NSString *) getSchoolName
+{
+    return @"University of South Carolina";
 }
 
 #pragma mark UIWebViewDelegate Methods
@@ -59,4 +66,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnChangeTeam:(id)sender {
+}
 @end
