@@ -13,8 +13,8 @@
 		463B790317C8CA2D00D0E904 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B790217C8CA2D00D0E904 /* QuartzCore.framework */; };
 		463B790617C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463B790517C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m */; };
 		463B791017C8F23B00D0E904 /* weatherIcons in Resources */ = {isa = PBXBuildFile; fileRef = 463B790F17C8F23B00D0E904 /* weatherIcons */; };
-		463B791D17C9104700D0E904 /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791B17C9104200D0E904 /* Exo-Bold.ttf */; };
-		463B791E17C9104700D0E904 /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791C17C9104200D0E904 /* Exo-Regular.ttf */; };
+		463B791F17C9109A00D0E904 /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791B17C9104200D0E904 /* Exo-Bold.ttf */; };
+		463B792017C9109A00D0E904 /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B791C17C9104200D0E904 /* Exo-Regular.ttf */; };
 		46EB918617C840FE0038B07E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918517C840FE0038B07E /* UIKit.framework */; };
 		46EB918817C840FE0038B07E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918717C840FE0038B07E /* Foundation.framework */; };
 		46EB918A17C840FE0038B07E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918917C840FE0038B07E /* CoreGraphics.framework */; };
@@ -212,8 +212,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				463B791D17C9104700D0E904 /* Exo-Bold.ttf in Resources */,
-				463B791E17C9104700D0E904 /* Exo-Regular.ttf in Resources */,
+				463B791F17C9109A00D0E904 /* Exo-Bold.ttf in Resources */,
+				463B792017C9109A00D0E904 /* Exo-Regular.ttf in Resources */,
 				46EB919017C840FE0038B07E /* InfoPlist.strings in Resources */,
 				46EB919817C840FE0038B07E /* Default.png in Resources */,
 				46EB919A17C840FE0038B07E /* Default@2x.png in Resources */,
