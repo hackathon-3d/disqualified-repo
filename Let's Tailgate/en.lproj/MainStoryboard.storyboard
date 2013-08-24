@@ -58,12 +58,12 @@
                                 <rect key="frame" x="0.0" y="1" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="BG8-vM-JAT">
-                                        <barButtonItem key="leftBarButtonItem" title="Tweet" id="ACb-n3-avN">
+                                        <barButtonItem key="leftBarButtonItem" image="weatherIcons/iconTwitterBtn.png" id="ACb-n3-avN">
                                             <connections>
                                                 <action selector="btnTweet:" destination="2" id="Y36-Wt-Lxi"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Change Team" id="7nR-GD-ssX">
+                                        <barButtonItem key="rightBarButtonItem" image="weatherIcons/iconSettings.png" id="7nR-GD-ssX">
                                             <connections>
                                                 <segue destination="exD-rg-kIX" kind="modal" identifier="segueChangeTeam" modalTransitionStyle="coverVertical" id="tVe-fj-Cj6"/>
                                             </connections>
@@ -92,14 +92,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H4Z-Ax-eXd">
-                                        <rect key="frame" x="0.0" y="116" width="130" height="16"/>
+                                        <rect key="frame" x="0.0" y="108" width="130" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dqc-Ku-8cA">
-                                        <rect key="frame" x="0.0" y="140" width="130" height="20"/>
+                                        <rect key="frame" x="0.0" y="136" width="130" height="20"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -108,13 +108,13 @@
                                         <rect key="frame" x="34" y="37" width="63" height="63"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V50-Py-Cs9">
-                                        <rect key="frame" x="138" y="33" width="182" height="108"/>
+                                        <rect key="frame" x="138" y="28" width="177" height="86"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1tZ-wz-ngH">
-                                        <rect key="frame" x="170" y="118" width="109" height="44"/>
+                                        <rect key="frame" x="138" y="119" width="177" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Buy Tickets">
@@ -153,6 +153,10 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="weatherIcons/iconSettings.png" width="16" height="16"/>
+        <image name="weatherIcons/iconTwitterBtn.png" width="16" height="16"/>
+    </resources>
     <classes>
         <class className="TeamNavigationBar" superclassName="UINavigationBar">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamNavigationBar.h"/>

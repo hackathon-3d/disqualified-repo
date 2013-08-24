@@ -33,16 +33,7 @@
     
     self.schoolName = schoolName;
     self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
-    
-    // Set Title Bar Info
-    [self setNavigationBarStylesAndTitle];
-    [self setupRecordLabel];
-    [self setupGameLabel];
-    [self setupWeatherView];
-    [self setupTwitterFeed];
-    
-    // Populate Data
-    [self buildSchoolView];
+
     
 }
 
@@ -57,21 +48,32 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+
     [self verifySchoolIsSelected];
+    // Set Title Bar Info
+    [self setNavigationBarStylesAndTitle];
+    [self setupRecordLabel];
+    [self setupGameLabel];
+    [self setupWeatherView];
+    [self setupTwitterFeed];
     
-    
+//    // Populate Data
+    [self buildSchoolView];
     
 }
 
 - (void) setupTwitterFeed
 {
-    self.twitterFeedController = [[TwitterFeedTableViewViewController alloc] init];
-    
-    [self.twitterFeedController setTableView:self.twitterTableView];
-    [self.twitterTableView setDelegate:self.twitterFeedController];
-    [self.twitterTableView setDataSource:self.twitterFeedController];
-    
-    [self.twitterFeedController searchForHashTag:[NSString stringWithFormat:@"#%@", [self.schoolInfo objectForKey:@"tweet"]]];
+    if([[self.schoolInfo objectForKey:@"tweet"] length] > 0)
+    {
+        self.twitterFeedController = [[TwitterFeedTableViewViewController alloc] init];
+        
+        [self.twitterFeedController setTableView:self.twitterTableView];
+        [self.twitterTableView setDelegate:self.twitterFeedController];
+        [self.twitterTableView setDataSource:self.twitterFeedController];
+        
+        [self.twitterFeedController searchForHashTag:[NSString stringWithFormat:@"#%@", [self.schoolInfo objectForKey:@"tweet"]]];
+    }
 
 }
 
@@ -147,17 +149,18 @@
     UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
     //UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
     
-    CALayer *layer = [self.nextGameLabel layer];
-    CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.borderColor = baseColor.CGColor;
-    bottomBorder.borderWidth = 4;
-    bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
-    [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
-    [layer addSublayer:bottomBorder];
+//    CALayer *layer = [self.nextGameLabel layer];
+//    CALayer *bottomBorder = [CALayer layer];
+//    bottomBorder.borderColor = baseColor.CGColor;
+//    bottomBorder.borderWidth = 4;
+//    bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
+//    [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
+//    [layer addSublayer:bottomBorder];
     
     self.nextGameLabel.text = [NSString stringWithFormat:@"Next Game\n%@\n%@",
                                [self.schoolInfo objectForKey:@"gameday"],
                                [self.schoolInfo objectForKey:@"matchup"]];
+    [self.nextGameLabel setFont:[UIFont fontWithName:@"Exo-Regular" size:14]];
 }
 
 - (void) setNavigationBarStylesAndTitle
@@ -206,8 +209,9 @@
             //NSDictionary *weatherObj = @{@"temp": temp, @"condition_label": condition_label, @"icon_url": icon_url};
             
             self.weatherLabel.text = condition_label;
+            [self.weatherLabel setFont:[UIFont fontWithName:@"Exo-Regular" size:16]];
             self.weatherTempLabel.text = temp;
-            [self.weatherTempLabel setFont:[UIFont fontWithName:@"Exo-Regular" size:24]];
+            [self.weatherTempLabel setFont:[UIFont fontWithName:@"Exo-Bold" size:28]];
             
             NSString *imagePath = [[NSBundle mainBundle] pathForResource:icon ofType:@"png" inDirectory:@"weatherIcons"];
             self.weatherImage.image = [UIImage imageWithContentsOfFile:imagePath];

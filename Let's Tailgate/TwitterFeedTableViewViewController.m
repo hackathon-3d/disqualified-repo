@@ -162,7 +162,6 @@ NSString const *tweetCount = @"25";
     cell.textLabel.text = [NSString stringWithFormat:@"%@",
                            [tweet objectForKey:@"text"]];
     cell.textLabel.numberOfLines = 3;
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     [[cell textLabel] setFont:[UIFont systemFontOfSize:12.0]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"by %@ - %@",
                                  [[tweet objectForKey: @"user"] objectForKey: @"name"],
