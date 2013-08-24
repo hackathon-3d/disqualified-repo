@@ -74,7 +74,6 @@
 		46EB917917C840FE0038B07E = {
 			isa = PBXGroup;
 			children = (
-				BC0BB97117C871630045F965 /* libsqlite3.dylib */,
 				46EB918B17C840FE0038B07E /* Let's Tailgate */,
 				46EB918417C840FE0038B07E /* Frameworks */,
 				46EB918317C840FE0038B07E /* Products */,
@@ -92,6 +91,7 @@
 		46EB918417C840FE0038B07E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC0BB97117C871630045F965 /* libsqlite3.dylib */,
 				463B78C617C85D0700D0E904 /* Social.framework */,
 				46EB918517C840FE0038B07E /* UIKit.framework */,
 				46EB918717C840FE0038B07E /* Foundation.framework */,

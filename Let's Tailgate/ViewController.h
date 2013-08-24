@@ -11,6 +11,8 @@
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
 
+@property NSDictionary *gameInfo;
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarTitle;

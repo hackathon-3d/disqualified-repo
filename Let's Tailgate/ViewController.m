@@ -19,11 +19,26 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    
     // Initialize Controls
     [self.webView setDelegate:self];
     
     [self.navBarTitle setTitle: [self getSchoolName]];
+    
+    // Populate Data
+    [self setGameInformation];
     [self getWeatherData];
+}
+
+- (void) setSchoolInformation
+{
+    
+}
+
+- (void) setGameInformation
+{
+    self.gameInfo = @{@"month": @"8", @"day": @"26", @"hour": @"16"};
+    
 }
 
 #pragma mark StoryBoard Events
@@ -38,7 +53,7 @@
 - (void) getWeatherData
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *dataURL = [NSURL URLWithString:@"http://api.wunderground.com/api/fca034c5c94b1ad7/forecast10day/q/CA/San_Francisco.json"];
+        NSURL *dataURL = [NSURL URLWithString:@"http://api.wunderground.com/api/fca034c5c94b1ad7/hourly10day/q/CA/San_Francisco.json"];
         NSData *data = [NSData dataWithContentsOfURL: dataURL];
         [self performSelectorOnMainThread:@selector(fetchedWeatherData:) withObject:data waitUntilDone:YES];
     });
@@ -47,9 +62,34 @@
 - (void) fetchedWeatherData:(NSData *)responseData
 {
     NSError *error;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error: &error];
+    NSDictionary *forecastData = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                 options:NSJSONReadingAllowFragments
+                                                                   error: &error];
+    for (NSDictionary *hourlyData in [forecastData objectForKey: @"hourly_forecast"])
+    {
+        
+        NSDictionary *timeInfo = [hourlyData objectForKey:@"FCTTIME"];
+        NSString *hour = [timeInfo objectForKey: @"hour"];
+        NSString *month = [timeInfo objectForKey: @"mon"];
+        NSString *day = [timeInfo objectForKey: @"mday"];
+        
+        if ([month isEqualToString: [self.gameInfo objectForKey:@"month"]] &&
+            [day isEqualToString: [self.gameInfo objectForKey: @"day"]] &&
+            [hour isEqualToString: [self.gameInfo objectForKey: @"hour"]])
+        {
+            NSString *temp = [[hourlyData objectForKey:@"temp"] objectForKey: @"english"];
+            NSString *condition_label = [hourlyData objectForKey: @"condition"];
+            NSString *icon_url = [hourlyData objectForKey: @"icon_url"];
+            
+            NSLog(@"Hour: %@", hour);
+            NSLog(@"Month: %@", month);
+            NSLog(@"Day: %@", day);
+            NSLog(@"Temperature: %@", temp);
+            NSLog(@"Condition: %@", condition_label);
+            NSLog(@"ICON Url: %@", icon_url);
+        }
+    }
     
-    NSLog(@"%@", json);
 }
 
 - (void) buildSchoolView
