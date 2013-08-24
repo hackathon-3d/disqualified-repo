@@ -17,5 +17,7 @@
 +(DBManager*)getSharedInstance;
 -(void)copyDatabaseIfNeeded;
 -(NSArray*)getSchoolList;
+-(NSArray*)getConferenceList;
+-(NSArray*)getSchoolByConference:(NSString *) conference;
 
 @end

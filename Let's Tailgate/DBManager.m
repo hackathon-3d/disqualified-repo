@@ -59,7 +59,7 @@ static sqlite3_stmt *statement = nil;
     NSString *dbPath = [self getDBPath];
     if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
     {
-        NSString *querySQL = @"select name from school";
+        NSString *querySQL = @"select name from school order by name";
         const char *query_stmt = [querySQL UTF8String];
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database,
@@ -69,6 +69,52 @@ static sqlite3_stmt *statement = nil;
             {
                 NSString *name = [[NSString alloc] initWithUTF8String:
                                   (const char *) sqlite3_column_text(statement, 0)];
+                [resultArray addObject:name];
+            }
+            return resultArray;
+            sqlite3_reset(statement);
+        }
+    }
+    return nil;
+}
+
+-(NSArray*) getConferenceList{
+    NSString *dbPath = [self getDBPath];
+    if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
+    {
+        NSString *querySQL = @"select distinct conference from school order by conference";
+        const char *query_stmt = [querySQL UTF8String];
+        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        if (sqlite3_prepare_v2(database,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                NSString *conference = [[NSString alloc] initWithUTF8String:
+                                  (const char *) sqlite3_column_text(statement, 0)];
+                [resultArray addObject:conference];
+            }
+            return resultArray;
+            sqlite3_reset(statement);
+        }
+    }
+    return nil;
+}
+
+-(NSArray*)getSchoolByConference:(NSString *) conference {
+    NSString *dbPath = [self getDBPath];
+    if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:@"select name from school where conference='%@' order by name",conference];
+        const char *query_stmt = [querySQL UTF8String];
+        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        if (sqlite3_prepare_v2(database,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                NSString *name = [[NSString alloc] initWithUTF8String:
+                                        (const char *) sqlite3_column_text(statement, 0)];
                 [resultArray addObject:name];
             }
             return resultArray;
