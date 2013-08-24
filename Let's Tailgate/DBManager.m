@@ -40,7 +40,7 @@ static sqlite3_stmt *statement = nil;
     
     if(!success) {
         
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"master.db"];
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"poop.db"];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
         
         if (!success)
@@ -58,7 +58,7 @@ static sqlite3_stmt *statement = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
     //NSLog(@"dbpath : %@",documentsDir);
-    return [documentsDir stringByAppendingPathComponent:@"master.db"];
+    return [documentsDir stringByAppendingPathComponent:@"poop.db"];
 }
 
 
