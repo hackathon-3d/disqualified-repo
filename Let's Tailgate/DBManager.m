@@ -135,7 +135,7 @@ static sqlite3_stmt *statement = nil;
   NSString *dbPath = [self getDBPath];
   if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
   {
-    NSString *querySQL = [NSString stringWithFormat:@"select mascot,city,state,conference,color1,color2,aprank,tweet,colorfont,statecode,cityweather,matchup,gameday,tickets from school where name like '%@%%'",name];
+    NSString *querySQL = [NSString stringWithFormat:@"select mascot,city,state,conference,color1,color2,aprank,tweet,colorfont,statecode,cityweather,matchup,gameday,tickets,gamehournum,gamedaynum,gamemonthnum from school where name like '%@%%'",name];
     const char *query_stmt = [querySQL UTF8String];
       
       
@@ -189,6 +189,15 @@ static sqlite3_stmt *statement = nil;
             NSString *tickets = [[NSString alloc] initWithUTF8String:
                                      (const char *) sqlite3_column_text(statement, 13)];
             [data setObject:tickets forKey:@"tickets"];
+            NSString *gamehournum = [[NSString alloc] initWithUTF8String:
+                                 (const char *) sqlite3_column_text(statement, 14)];
+            [data setObject:gamehournum forKey:@"gamehournum"];
+            NSString *gamedaynum = [[NSString alloc] initWithUTF8String:
+                                 (const char *) sqlite3_column_text(statement, 15)];
+            [data setObject:gamedaynum forKey:@"gamedaynum"];
+            NSString *gamemonthnum = [[NSString alloc] initWithUTF8String:
+                                 (const char *) sqlite3_column_text(statement, 16)];
+            [data setObject:gamemonthnum forKey:@"gamemonthnum"];
             return data;
         }
         sqlite3_reset(statement);
