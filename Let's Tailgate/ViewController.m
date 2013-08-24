@@ -41,7 +41,7 @@
     self.schoolName = schoolName;
     //self.schoolInfo = [[[DBManager getSharedInstance]getSchoolByName:schoolName] objectForKey:schoolName];
     
-    //NSLog(@"School Info: %@", [[DBManager getSharedInstance] getSchoolByName:schoolName]);
+    NSLog(@"School Info: %@", [[DBManager getSharedInstance] getSchoolByName:schoolName]);
 
 }
 
