@@ -48,5 +48,18 @@ function setTeamInformation(data)
 
 function setTeamColors(baseColor, accentColor)
 {
-	
+	// Base Colors
+	$('.baseColorBorder').css('border-color', baseColor);
+	$('.baseColorText').css('color', baseColor);
+	$('.baseColorBg').css('background-color', baseColor);
+	$('.baseColorLink a').css('color', baseColor + '!important');
+	$('.twitterContent a').css('color', baseColor + '!important');
+
+	// Accent Colors
+	$('.accentColorBorder').css('border-color', accentColor);
+	$('.accentColorText').css('color', accentColor);
+	$('.accentColorBg').css('background-color', accentColor);
+	$('.accentColorLink a').css('color', accentColor + '!important');
+
+
 }

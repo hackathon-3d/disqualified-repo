@@ -41,7 +41,7 @@
     self.schoolName = schoolName;
     //self.schoolInfo = [[[DBManager getSharedInstance]getSchoolByName:schoolName] objectForKey:schoolName];
     
-    NSLog(@"School Info: %@", [[DBManager getSharedInstance] getSchoolByName:schoolName]);
+    //NSLog(@"School Info: %@", [[DBManager getSharedInstance] getSchoolByName:schoolName]);
 
 }
 
@@ -66,6 +66,14 @@
     
 }
 
+- (void) setTheme
+{
+    NSString *javascriptCall = [NSString stringWithFormat:@"setTeamColors(\"#%@\", \"#%@\")", @"ffffff", @"green"];
+    [self.webView stringByEvaluatingJavaScriptFromString:javascriptCall];
+    NSLog(@"Attempting to change colors!");
+    //[self.navBar setTintColor: [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]]];
+}
+
 #pragma mark StoryBoard Events
 
 - (void) viewDidAppear:(BOOL)animated
@@ -84,7 +92,7 @@
 - (void) setNavigationBarStylesAndTitle
 {
     [self.navBarTitle setTitle: self.schoolName];
-    //[self.navBar setTintColor: [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]]];
+    
     
 }
 
@@ -138,6 +146,7 @@
 
 - (void) buildSchoolView
 {
+    [self setTheme];
     [self setGameInformation];
     [self getWeatherData];
     [self getTwitterFeed];
