@@ -29,6 +29,8 @@
 		46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB91AB17C84C900038B07E /* TeamsViewController.m */; };
 		BC0BB97017C86E630045F965 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BB96F17C86E630045F965 /* DBManager.m */; };
 		BC0BB97217C871630045F965 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0BB97117C871630045F965 /* libsqlite3.dylib */; };
+		BCE061BD17C912260061330F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE061BC17C912260061330F /* Icon.png */; };
+		BCE061BF17C912280061330F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE061BE17C912280061330F /* Icon@2x.png */; };
 		BCE16F5617C86B7900104584 /* create.sql in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5317C86B7900104584 /* create.sql */; };
 		BCE16F5717C86B7900104584 /* makedb.sh in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5417C86B7900104584 /* makedb.sh */; };
 		BCE16F5817C86B7900104584 /* master.db in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5517C86B7900104584 /* master.db */; };
@@ -66,6 +68,8 @@
 		BC0BB96E17C86E630045F965 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		BC0BB96F17C86E630045F965 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		BC0BB97117C871630045F965 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BCE061BC17C912260061330F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		BCE061BE17C912280061330F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		BCE16F5317C86B7900104584 /* create.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = create.sql; sourceTree = "<group>"; };
 		BCE16F5417C86B7900104584 /* makedb.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = makedb.sh; sourceTree = "<group>"; };
 		BCE16F5517C86B7900104584 /* master.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = master.db; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		46EB917917C840FE0038B07E = {
 			isa = PBXGroup;
 			children = (
+				BCE061BE17C912280061330F /* Icon@2x.png */,
+				BCE061BC17C912260061330F /* Icon.png */,
 				46EB918B17C840FE0038B07E /* Let's Tailgate */,
 				46EB918417C840FE0038B07E /* Frameworks */,
 				46EB918317C840FE0038B07E /* Products */,
@@ -223,6 +229,8 @@
 				BCE16F5717C86B7900104584 /* makedb.sh in Resources */,
 				BCE16F5817C86B7900104584 /* master.db in Resources */,
 				463B791017C8F23B00D0E904 /* weatherIcons in Resources */,
+				BCE061BD17C912260061330F /* Icon.png in Resources */,
+				BCE061BF17C912280061330F /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
