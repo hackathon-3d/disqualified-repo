@@ -71,9 +71,9 @@
                             </navigationBar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rk-kV-toc">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="cfA-YX-ONl"/>
+                                    <constraint firstAttribute="width" constant="243" id="uEK-rr-cq4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -94,7 +94,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="SoV-ti-GEQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -114,7 +114,16 @@
                                     <constraint firstAttribute="height" constant="99" id="Xfr-J8-Yym"/>
                                     <constraint firstAttribute="width" constant="205" id="Ye0-DF-nzd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Record:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRw-s7-wDH">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="1bl-PN-htg"/>
+                                    <constraint firstAttribute="width" constant="77" id="xia-SQ-IMe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -126,16 +135,18 @@
                             <constraint firstItem="rF5-Te-qrF" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="BzO-sM-GdF"/>
                             <constraint firstItem="ETC-Ua-kdb" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Fmp-hg-j5q"/>
                             <constraint firstAttribute="trailing" secondItem="Auc-Hc-4mk" secondAttribute="trailing" constant="205" id="HmO-2X-jCs"/>
-                            <constraint firstItem="1rk-kV-toc" firstAttribute="top" secondItem="rF5-Te-qrF" secondAttribute="bottom" type="default" id="HsL-kf-Pvt"/>
+                            <constraint firstItem="yRw-s7-wDH" firstAttribute="top" secondItem="rF5-Te-qrF" secondAttribute="bottom" type="default" id="LqF-4r-918"/>
                             <constraint firstItem="rF5-Te-qrF" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dLu-1O-Kni"/>
+                            <constraint firstItem="1rk-kV-toc" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dp1-ON-Xt3"/>
                             <constraint firstItem="Auc-Hc-4mk" firstAttribute="top" secondItem="V50-Py-Cs9" secondAttribute="top" type="default" id="hxx-UE-MmQ"/>
                             <constraint firstItem="ETC-Ua-kdb" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="igv-kg-18f"/>
+                            <constraint firstItem="1rk-kV-toc" firstAttribute="baseline" secondItem="yRw-s7-wDH" secondAttribute="baseline" type="default" id="kus-Ua-1tA"/>
                             <constraint firstItem="V50-Py-Cs9" firstAttribute="bottom" secondItem="Auc-Hc-4mk" secondAttribute="bottom" type="default" id="lBS-vb-jUq"/>
                             <constraint firstItem="rF5-Te-qrF" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="lSz-hC-O6k"/>
-                            <constraint firstItem="1rk-kV-toc" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="nY9-wj-yql"/>
+                            <constraint firstItem="yRw-s7-wDH" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="mOu-1g-xgW"/>
                             <constraint firstItem="Auc-Hc-4mk" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="nZE-bZ-HoZ"/>
-                            <constraint firstItem="1rk-kV-toc" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="wH7-Wy-CfK"/>
                             <constraint firstItem="V50-Py-Cs9" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="wYJ-aQ-SXD"/>
+                            <constraint firstItem="yRw-s7-wDH" firstAttribute="top" secondItem="1rk-kV-toc" secondAttribute="top" type="default" id="yZI-6n-fzP"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -144,6 +155,7 @@
                         <outlet property="navBar" destination="rF5-Te-qrF" id="sLJ-vC-g8r"/>
                         <outlet property="navBarTitle" destination="BG8-vM-JAT" id="YWC-BC-ZOp"/>
                         <outlet property="nextGameLabel" destination="V50-Py-Cs9" id="TbN-b6-tdv"/>
+                        <outlet property="recordBoldLabel" destination="yRw-s7-wDH" id="xQ4-BZ-Gbd"/>
                         <outlet property="recordLabel" destination="1rk-kV-toc" id="Jtg-9z-8b2"/>
                         <outlet property="twitterTableView" destination="ETC-Ua-kdb" id="BdX-CF-mXc"/>
                         <outlet property="weatherImage" destination="AT9-3e-AfN" id="hOz-r0-lya"/>
@@ -155,32 +167,6 @@
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TeamNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamNavigationBar.h"/>
-        </class>
-        <class className="TeamsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamsViewController.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnChangeTeam:"/>
-                <relationship kind="action" name="btnTweet:"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navBarTitle" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="nextGameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="recordLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="twitterTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="weatherImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="weatherLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="weatherView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

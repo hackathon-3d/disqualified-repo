@@ -33,6 +33,8 @@
     
     self.schoolName = schoolName;
     self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
+    
+    NSLog(@"%@", self.schoolInfo);
 }
 
 
@@ -105,16 +107,38 @@
     UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
     
     self.recordLabel.backgroundColor = accentColor;
+    self.recordBoldLabel.backgroundColor = accentColor;
     
     CALayer *layer = [self.recordLabel layer];
+    CALayer *boldLayer = [self.recordBoldLabel layer];
+    
     CALayer *bottomBorder = [CALayer layer];
     bottomBorder.borderColor = baseColor.CGColor;
     bottomBorder.borderWidth = 4;
     bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
     [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
-    [layer addSublayer:bottomBorder];
     
-    self.recordLabel.text = @"Record: 0-0/0-0 (23)";
+    CALayer *bottomBorder2 = [CALayer layer];
+    bottomBorder2.borderColor = baseColor.CGColor;
+    bottomBorder2.borderWidth = 4;
+    bottomBorder2.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
+    [bottomBorder2 setBorderColor:[UIColor blackColor].CGColor];
+    
+    [layer addSublayer:bottomBorder];
+    [boldLayer addSublayer:bottomBorder2];
+    
+    NSString *labelString = nil;
+    
+    if ([[self.schoolInfo objectForKey:@"aprank"] length] == 0)
+    {
+        labelString = [NSString stringWithFormat:@"0-0/0-0"];
+    }
+    else
+    {
+        labelString = [NSString stringWithFormat:@"0-0/0-0 (%@)", [self.schoolInfo objectForKey:@"aprank"]];
+    }
+    
+    self.recordLabel.text = labelString;
 }
 
 - (void) setupGameLabel
@@ -132,7 +156,10 @@
     [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
     [layer addSublayer:bottomBorder];
     
-    self.nextGameLabel.text = @"Next Game\nSat. Sept. 19 - 3:45pm\n@ (13) Georgia Tech";
+    self.nextGameLabel.text = [NSString stringWithFormat:@"Next Game\n%@\n%@ (%@)",
+                               [self.schoolInfo objectForKey:@"gameday"],
+                               [self.schoolInfo objectForKey:@"matchup"],
+                               [self.schoolInfo objectForKey:@"aprank"]];
 }
 
 - (void) setNavigationBarStylesAndTitle
@@ -146,7 +173,10 @@
 - (void) getWeatherData
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *dataURL = [NSURL URLWithString:@"http://api.wunderground.com/api/fca034c5c94b1ad7/hourly10day/q/CA/San_Francisco.json"];
+        NSString *wUrl = [NSString stringWithFormat:@"http://api.wunderground.com/api/fca034c5c94b1ad7/hourly10day/q/%@/%@.json",
+                                                    [self.schoolInfo objectForKey:@"statecode"],
+                                                    [self.schoolInfo objectForKey:@"cityweather"]];
+        NSURL *dataURL = [NSURL URLWithString:wUrl];
         NSData *data = [NSData dataWithContentsOfURL: dataURL];
         [self performSelectorOnMainThread:@selector(fetchedWeatherData:) withObject:data waitUntilDone:YES];
     });
@@ -213,13 +243,17 @@
             // Not Necessary yet
             switch (result) {
                 case SLComposeViewControllerResultCancelled:
+                    NSLog(@"Canceled Tweet");
                     break;
                 case SLComposeViewControllerResultDone:
+                    NSLog(@"Tweeted Successfully");
                     break;
                     
                 default:
                     break;
             }
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
         }];
         
         [self presentViewController:mySLComposerSheet animated:YES completion:nil];
