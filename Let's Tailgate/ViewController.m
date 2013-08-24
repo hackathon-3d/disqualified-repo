@@ -32,7 +32,7 @@
     }
     
     self.schoolName = schoolName;
-    self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
+    //self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
 
     
 }
@@ -48,7 +48,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-
+    
     [self verifySchoolIsSelected];
     // Set Title Bar Info
     [self setNavigationBarStylesAndTitle];
@@ -146,20 +146,11 @@
 
 - (void) setupGameLabel
 {
-    //UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
-    //UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
-    
-//    CALayer *layer = [self.nextGameLabel layer];
-//    CALayer *bottomBorder = [CALayer layer];
-//    bottomBorder.borderColor = baseColor.CGColor;
-//    bottomBorder.borderWidth = 4;
-//    bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
-//    [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
-//    [layer addSublayer:bottomBorder];
     
     self.nextGameLabel.text = [NSString stringWithFormat:@"Next Game\n%@\n%@",
                                [self.schoolInfo objectForKey:@"gameday"],
                                [self.schoolInfo objectForKey:@"matchup"]];
+    
     [self.nextGameLabel setFont:[UIFont fontWithName:@"Exo-Regular" size:14]];
 }
 

@@ -31,12 +31,12 @@ static sqlite3_stmt *statement = nil;
     NSString *dbPath = [self getDBPath];
     BOOL success = [fileManager fileExistsAtPath:dbPath];
 
-    // REMOVE IN FINAL!!!
-    //if (success)
-    //{
-    //    [[NSFileManager defaultManager] removeItemAtPath:dbPath error:&error];
-    //    success = NO;
-    //}
+     //REMOVE IN FINAL!!!
+    if (success)
+    {
+        [[NSFileManager defaultManager] removeItemAtPath:dbPath error:&error];
+        success = NO;
+    }
     
     if(!success) {
         
