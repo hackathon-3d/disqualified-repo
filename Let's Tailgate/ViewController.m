@@ -28,7 +28,7 @@
     
     if ([schoolName length] == 0)
     {
-        self.schoolName = @"University of South  Carolina";
+        schoolName = @"University of South  Carolina";
         [self performSegueWithIdentifier:@"segueChangeTeam" sender:self];
     }
     
@@ -80,26 +80,11 @@
 
 - (void) setupWeatherView
 {
-    UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
+    //UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
     UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
     
     self.weatherView.backgroundColor = accentColor;
     
-    CALayer *layer = [self.weatherView layer];
-    CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.borderColor = baseColor.CGColor;
-    bottomBorder.borderWidth = 4;
-    bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
-    [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
-    
-    CALayer *rightBorder = [CALayer layer];
-    rightBorder.borderColor = baseColor.CGColor;
-    rightBorder.borderWidth = 4;
-    rightBorder.frame = CGRectMake(layer.frame.size.width-1, -1, 1, layer.frame.size.height + 1);
-    [rightBorder setBorderColor:[UIColor blackColor].CGColor];
-    
-    [layer addSublayer:bottomBorder];
-    [layer addSublayer:rightBorder];
     
     [self getWeatherData];
     
