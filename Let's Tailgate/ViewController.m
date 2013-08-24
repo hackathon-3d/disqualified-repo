@@ -19,13 +19,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.twitterFeed = [[TwitterFeed alloc] init];
-    
-    // Initialize Controls
-    [self.webView setDelegate:self];
-    [[self.webView scrollView] setBounces: NO];
-    self.webView.scrollView.showsVerticalScrollIndicator = NO;
-    
 }
 
 - (void) verifySchoolIsSelected
@@ -39,39 +32,14 @@
     }
     
     self.schoolName = schoolName;
-    //self.schoolInfo = [[[DBManager getSharedInstance]getSchoolByName:schoolName] objectForKey:schoolName];
-    
-    NSLog(@"School Info: %@", [[DBManager getSharedInstance] getSchoolByName:schoolName]);
-
+    self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
 }
 
-- (void) loadWebViewInterface
-{
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"www"];
-    NSURL *url = [[NSURL alloc] initFileURLWithPath:htmlFile];
-    
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    
-    [self.webView loadRequest:request];
-}
-
-- (void) getTwitterFeed
-{
-    [self.twitterFeed getTwitterMessagesAsJSON:@"USC"];
-}
 
 - (void) setGameInformation
 {
     self.gameInfo = @{@"month": @"8", @"day": @"26", @"hour": @"16"};
     
-}
-
-- (void) setTheme
-{
-    NSString *javascriptCall = [NSString stringWithFormat:@"setTeamColors(\"#%@\", \"#%@\")", @"ffffff", @"green"];
-    [self.webView stringByEvaluatingJavaScriptFromString:javascriptCall];
-    NSLog(@"Attempting to change colors!");
-    //[self.navBar setTintColor: [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]]];
 }
 
 #pragma mark StoryBoard Events
@@ -82,18 +50,95 @@
     
     // Set Title Bar Info
     [self setNavigationBarStylesAndTitle];
-    [self loadWebViewInterface];
+    [self setupRecordLabel];
+    [self setupGameLabel];
+    [self setupWeatherView];
+    [self setupTwitterFeed];
     
     // Populate Data
     [self buildSchoolView];
     
 }
 
+- (void) setupTwitterFeed
+{
+    self.twitterFeedController = [[TwitterFeedTableViewViewController alloc] init];
+    
+    [self.twitterFeedController setTableView:self.twitterTableView];
+    [self.twitterTableView setDelegate:self.twitterFeedController];
+    [self.twitterTableView setDataSource:self.twitterFeedController];
+    
+    [self.twitterFeedController searchForHashTag:[NSString stringWithFormat:@"#%@", [self.schoolInfo objectForKey:@"tweet"]]];
+
+}
+
+- (void) setupWeatherView
+{
+    UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
+    UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
+    
+    self.weatherView.backgroundColor = accentColor;
+    
+    CALayer *layer = [self.weatherView layer];
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.borderColor = baseColor.CGColor;
+    bottomBorder.borderWidth = 4;
+    bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
+    [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
+    
+    CALayer *rightBorder = [CALayer layer];
+    rightBorder.borderColor = baseColor.CGColor;
+    rightBorder.borderWidth = 4;
+    rightBorder.frame = CGRectMake(layer.frame.size.width-1, -1, 1, layer.frame.size.height + 1);
+    [rightBorder setBorderColor:[UIColor blackColor].CGColor];
+    
+    [layer addSublayer:bottomBorder];
+    [layer addSublayer:rightBorder];
+    
+    self.weatherLabel.text = @"Sunny";
+    
+}
+
+- (void) setupRecordLabel
+{
+    UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
+    UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
+    
+    self.recordLabel.backgroundColor = accentColor;
+    
+    CALayer *layer = [self.recordLabel layer];
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.borderColor = baseColor.CGColor;
+    bottomBorder.borderWidth = 4;
+    bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
+    [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
+    [layer addSublayer:bottomBorder];
+    
+    self.recordLabel.text = @"Record: 0-0/0-0 (23)";
+}
+
+- (void) setupGameLabel
+{
+    UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
+    UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
+    
+    self.nextGameLabel.backgroundColor = accentColor;
+    
+    CALayer *layer = [self.nextGameLabel layer];
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.borderColor = baseColor.CGColor;
+    bottomBorder.borderWidth = 4;
+    bottomBorder.frame = CGRectMake(-1, layer.frame.size.height-1, layer.frame.size.width, 1);
+    [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
+    [layer addSublayer:bottomBorder];
+    
+    self.nextGameLabel.text = @"Next Game\nSat. Sept. 19 - 3:45pm\n@ (13) Georgia Tech";
+}
+
 - (void) setNavigationBarStylesAndTitle
 {
     [self.navBarTitle setTitle: self.schoolName];
-    
-    
+    [self.navBar setTintColor: [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]]];
 }
 
 #pragma mark Data Wrappers
@@ -130,14 +175,6 @@
             NSString *icon_url = [hourlyData objectForKey: @"icon_url"];
             
             NSDictionary *weatherObj = @{@"temp": temp, @"condition_label": condition_label, @"icon_url": icon_url};
-            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:weatherObj
-                                                               options:NSJSONWritingPrettyPrinted
-                                                                 error:&error];
-            NSString *weatherJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-            NSString *javascriptCall = [NSString stringWithFormat:@"updateWeather(%@)", weatherJSON];
-            
-            [self.webView stringByEvaluatingJavaScriptFromString:javascriptCall];
-            NSLog(@"Made Call");
             
         }
     }
@@ -146,38 +183,10 @@
 
 - (void) buildSchoolView
 {
-    [self setTheme];
     [self setGameInformation];
     [self getWeatherData];
-    [self getTwitterFeed];
     [self.navBarTitle setTitle: self.schoolName];
     
-}
-
-#pragma mark UIWebViewDelegate Methods
-
-- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSURL *URL = [request URL];
-    
-    if([[URL scheme] isEqualToString:@"tailgate"]) {
-        NSString *urlString = [[request URL] absoluteString];
-        NSArray *urlParts = [urlString componentsSeparatedByString:@":"];
-        
-        if([urlParts count] > 1) {
-            NSArray *parameters = [[urlParts objectAtIndex: 1] componentsSeparatedByString:@"&"];
-            NSString *methodName = [parameters objectAtIndex: 0];
-            NSString *variableName = [parameters objectAtIndex:1];
-            
-            NSString *message = [NSString stringWithFormat:@"Call to the Backend with methodname=%@ and variablename=%@", methodName, variableName];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Test" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK",nil , nil];
-            [alert show];
-        }
-        
-        return NO;
-    }
-    
-    return YES;
 }
 
 #pragma mark UI Actions
@@ -193,7 +202,7 @@
         
         SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
-        NSString *message = [[NSString alloc] initWithFormat: @"Anyone going to see the game this week? #%@", self.schoolName];
+        NSString *message = [[NSString alloc] initWithFormat: @"Anyone going to see the game this week? #%@", [self.schoolInfo objectForKey:@"tweet"]];
         [mySLComposerSheet setInitialText:message];
         
         //[mySLComposerSheet addImage:[UIImage imageNamed:@"myImage.png"]];
@@ -254,6 +263,42 @@
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
+}
+
+-(UIColor*)colorWithHexStringLoweredOpacity:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:0.4f];
 }
 
 #pragma mark House Keeping

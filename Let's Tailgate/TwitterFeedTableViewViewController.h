@@ -1,5 +1,5 @@
 //
-//  TwitterFeed.h
+//  TwitterFeedTableViewViewController.h
 //  Let's Tailgate
 //
 //  Created by Nick Shepherd on 8/24/13.
@@ -10,13 +10,13 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
-@interface TwitterFeed : NSObject
-
+@interface TwitterFeedTableViewViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property NSMutableArray *twitterMessages;
 @property ACAccountStore *accountStore;
 @property ACAccount *twitterAccount;
 @property NSString *lastMessageID;
 
-- (NSString *) getTwitterMessagesAsJSON:(NSString *) filter;
+
+- (void) searchForHashTag: (NSString *)hashTag;
 
 @end

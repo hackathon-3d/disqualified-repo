@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		463B78C717C85D0700D0E904 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B78C617C85D0700D0E904 /* Social.framework */; };
-		463B78CA17C8788B00D0E904 /* TwitterFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 463B78C917C8788B00D0E904 /* TwitterFeed.m */; };
 		463B78D017C88C1700D0E904 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B78CF17C88C1700D0E904 /* Accounts.framework */; };
 		463B78FF17C8A7F300D0E904 /* TeamNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 463B78FE17C8A7F300D0E904 /* TeamNavigationBar.m */; };
-		463B790117C8AF9D00D0E904 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 463B790017C8AF9D00D0E904 /* www */; };
+		463B790317C8CA2D00D0E904 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B790217C8CA2D00D0E904 /* QuartzCore.framework */; };
+		463B790617C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463B790517C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m */; };
 		46EB918617C840FE0038B07E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918517C840FE0038B07E /* UIKit.framework */; };
 		46EB918817C840FE0038B07E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918717C840FE0038B07E /* Foundation.framework */; };
 		46EB918A17C840FE0038B07E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918917C840FE0038B07E /* CoreGraphics.framework */; };
@@ -33,12 +33,12 @@
 
 /* Begin PBXFileReference section */
 		463B78C617C85D0700D0E904 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		463B78C817C8788B00D0E904 /* TwitterFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterFeed.h; sourceTree = "<group>"; };
-		463B78C917C8788B00D0E904 /* TwitterFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeed.m; sourceTree = "<group>"; };
 		463B78CF17C88C1700D0E904 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		463B78FD17C8A7F300D0E904 /* TeamNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamNavigationBar.h; sourceTree = "<group>"; };
 		463B78FE17C8A7F300D0E904 /* TeamNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamNavigationBar.m; sourceTree = "<group>"; };
-		463B790017C8AF9D00D0E904 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		463B790217C8CA2D00D0E904 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		463B790417C8D2DC00D0E904 /* TwitterFeedTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterFeedTableViewViewController.h; sourceTree = "<group>"; };
+		463B790517C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeedTableViewViewController.m; sourceTree = "<group>"; };
 		46EB918217C840FE0038B07E /* Let's Tailgate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Tailgate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EB918517C840FE0038B07E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46EB918717C840FE0038B07E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463B790317C8CA2D00D0E904 /* QuartzCore.framework in Frameworks */,
 				463B78D017C88C1700D0E904 /* Accounts.framework in Frameworks */,
 				BC0BB97217C871630045F965 /* libsqlite3.dylib in Frameworks */,
 				463B78C717C85D0700D0E904 /* Social.framework in Frameworks */,
@@ -102,6 +103,7 @@
 		46EB918417C840FE0038B07E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				463B790217C8CA2D00D0E904 /* QuartzCore.framework */,
 				463B78CF17C88C1700D0E904 /* Accounts.framework */,
 				BC0BB97117C871630045F965 /* libsqlite3.dylib */,
 				463B78C617C85D0700D0E904 /* Social.framework */,
@@ -115,13 +117,12 @@
 		46EB918B17C840FE0038B07E /* Let's Tailgate */ = {
 			isa = PBXGroup;
 			children = (
-				463B790017C8AF9D00D0E904 /* www */,
 				BC0BB96E17C86E630045F965 /* DBManager.h */,
 				BC0BB96F17C86E630045F965 /* DBManager.m */,
 				463B78FD17C8A7F300D0E904 /* TeamNavigationBar.h */,
 				463B78FE17C8A7F300D0E904 /* TeamNavigationBar.m */,
-				463B78C817C8788B00D0E904 /* TwitterFeed.h */,
-				463B78C917C8788B00D0E904 /* TwitterFeed.m */,
+				463B790417C8D2DC00D0E904 /* TwitterFeedTableViewViewController.h */,
+				463B790517C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m */,
 				46EB919417C840FE0038B07E /* AppDelegate.h */,
 				46EB919517C840FE0038B07E /* AppDelegate.m */,
 				46EB919D17C840FE0038B07E /* MainStoryboard.storyboard */,
@@ -210,7 +211,6 @@
 				BCE16F5617C86B7900104584 /* create.sql in Resources */,
 				BCE16F5717C86B7900104584 /* makedb.sh in Resources */,
 				BCE16F5817C86B7900104584 /* master.db in Resources */,
-				463B790117C8AF9D00D0E904 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,8 +226,8 @@
 				46EB91A217C840FE0038B07E /* ViewController.m in Sources */,
 				46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */,
 				BC0BB97017C86E630045F965 /* DBManager.m in Sources */,
-				463B78CA17C8788B00D0E904 /* TwitterFeed.m in Sources */,
 				463B78FF17C8A7F300D0E904 /* TeamNavigationBar.m in Sources */,
+				463B790617C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

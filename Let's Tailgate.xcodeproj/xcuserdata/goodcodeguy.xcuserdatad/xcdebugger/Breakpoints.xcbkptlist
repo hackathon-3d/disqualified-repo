@@ -7,19 +7,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Let&apos;s Tailgate/TwitterFeed.h"
-         timestampString = "399019038.126984"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
-         landmarkName = "-getTwitterMessagesAsJSON:"
-         landmarkType = "4">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/TwitterFeed.m"
          timestampString = "399020783.312096"
          startingColumnNumber = "9223372036854775807"

@@ -1,25 +1,37 @@
 //
-//  TwitterFeed.m
+//  TwitterFeedTableViewViewController.m
 //  Let's Tailgate
 //
 //  Created by Nick Shepherd on 8/24/13.
 //  Copyright (c) 2013 Grey Bull Studios. All rights reserved.
 //
 
-#import "TwitterFeed.h"
+#import "TwitterFeedTableViewViewController.h"
 
-@implementation TwitterFeed
+@interface TwitterFeedTableViewViewController ()
+
+@end
+
+@implementation TwitterFeedTableViewViewController
 
 NSString *apiURL = @"https://api.twitter.com/1.1/search/tweets.json";
 NSString const *tweetCount = @"25";
 
-- (TwitterFeed *) init
+
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self.accountStore = [[ACAccountStore alloc] init];
-    self.twitterAccount = [[ACAccount alloc] init];
-    self.lastMessageID = @"1";
-    return [super init];
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+        self.accountStore = [[ACAccountStore alloc] init];
+        self.twitterAccount = [[ACAccount alloc] init];
+        self.lastMessageID = @"1";
+    }
+    return self;
 }
+
+#pragma mark Twitter Shit
+
 
 - (BOOL) hasAccessToTwitter
 {
@@ -32,7 +44,7 @@ NSString const *tweetCount = @"25";
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier: ACAccountTypeIdentifierTwitter];
     
     [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
-
+        
         if (granted)
         {
             NSArray *accounts = [accountStore accountsWithAccountType:accountType];
@@ -67,6 +79,7 @@ NSString const *tweetCount = @"25";
 - (void) appendTwitterMessages:(NSArray *) data
 {
     self.twitterMessages = [[NSMutableArray alloc] initWithArray: data];
+    [self.tableView reloadData];
 }
 
 - (void) searchForHashTag: (NSString *)hashTag
@@ -94,4 +107,60 @@ NSString const *tweetCount = @"25";
 }
 
 
-@end
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.twitterMessages count];
+}
+
+
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    static NSString *cellID = @"TweetCell";
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellID];
+    }
+    
+    NSDictionary *tweet = [self.twitterMessages objectAtIndex: indexPath.row];
+    
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",
+                           [tweet objectForKey:@"text"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"by %@ - %@",
+                                 [[tweet objectForKey: @"user"] objectForKey: @"name"],
+                                 [tweet objectForKey: @"id"]];
+    
+    return cell;
+    
+}
+
+@end;
