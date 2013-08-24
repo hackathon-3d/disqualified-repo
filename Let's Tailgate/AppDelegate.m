@@ -13,6 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Exo-Regular" size:16]];
     return YES;
 }
 							

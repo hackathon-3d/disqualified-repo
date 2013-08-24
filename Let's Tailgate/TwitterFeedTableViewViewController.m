@@ -136,6 +136,12 @@ NSString const *tweetCount = @"25";
     return [self.twitterMessages count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return (44.0 + 2 * 19.0);
+}
+
+
+
 
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,6 +161,9 @@ NSString const *tweetCount = @"25";
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@",
                            [tweet objectForKey:@"text"]];
+    cell.textLabel.numberOfLines = 3;
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    [[cell textLabel] setFont:[UIFont systemFontOfSize:12.0]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"by %@ - %@",
                                  [[tweet objectForKey: @"user"] objectForKey: @"name"],
                                  [tweet objectForKey: @"id"]];

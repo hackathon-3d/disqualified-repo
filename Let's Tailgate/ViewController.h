@@ -28,8 +28,10 @@
 @property (weak, nonatomic) IBOutlet UIView *weatherView;
 @property (weak, nonatomic) IBOutlet UITableView *twitterTableView;
 @property (weak, nonatomic) IBOutlet UILabel *recordBoldLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weatherTempLabel;
 
 - (IBAction)btnChangeTeam:(id)sender;
 - (IBAction)btnTweet:(id)sender;
+- (IBAction)btnBuyTickets:(id)sender;
 
 @end

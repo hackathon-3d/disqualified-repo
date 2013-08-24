@@ -14,6 +14,7 @@
 		463B790617C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463B790517C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m */; };
 		463B790D17C8E68600D0E904 /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B790717C8E64B00D0E904 /* Exo-Bold.ttf */; };
 		463B790E17C8E68600D0E904 /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463B790817C8E64B00D0E904 /* Exo-Regular.ttf */; };
+		463B791017C8F23B00D0E904 /* weatherIcons in Resources */ = {isa = PBXBuildFile; fileRef = 463B790F17C8F23B00D0E904 /* weatherIcons */; };
 		46EB918617C840FE0038B07E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918517C840FE0038B07E /* UIKit.framework */; };
 		46EB918817C840FE0038B07E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918717C840FE0038B07E /* Foundation.framework */; };
 		46EB918A17C840FE0038B07E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918917C840FE0038B07E /* CoreGraphics.framework */; };
@@ -43,6 +44,7 @@
 		463B790517C8D2DC00D0E904 /* TwitterFeedTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeedTableViewViewController.m; sourceTree = "<group>"; };
 		463B790717C8E64B00D0E904 /* Exo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo-Bold.ttf"; path = "../../../../../Desktop/www/Exo-Bold.ttf"; sourceTree = "<group>"; };
 		463B790817C8E64B00D0E904 /* Exo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo-Regular.ttf"; path = "../../../../../Desktop/www/Exo-Regular.ttf"; sourceTree = "<group>"; };
+		463B790F17C8F23B00D0E904 /* weatherIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = weatherIcons; sourceTree = "<group>"; };
 		46EB918217C840FE0038B07E /* Let's Tailgate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Tailgate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EB918517C840FE0038B07E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46EB918717C840FE0038B07E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,7 @@
 		46EB918B17C840FE0038B07E /* Let's Tailgate */ = {
 			isa = PBXGroup;
 			children = (
+				463B790F17C8F23B00D0E904 /* weatherIcons */,
 				BC0BB96E17C86E630045F965 /* DBManager.h */,
 				BC0BB96F17C86E630045F965 /* DBManager.m */,
 				463B78FD17C8A7F300D0E904 /* TeamNavigationBar.h */,
@@ -219,6 +222,7 @@
 				BCE16F5617C86B7900104584 /* create.sql in Resources */,
 				BCE16F5717C86B7900104584 /* makedb.sh in Resources */,
 				BCE16F5817C86B7900104584 /* master.db in Resources */,
+				463B791017C8F23B00D0E904 /* weatherIcons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

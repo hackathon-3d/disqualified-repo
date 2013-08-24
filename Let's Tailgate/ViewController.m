@@ -34,22 +34,6 @@
     self.schoolName = schoolName;
     self.schoolInfo = [[DBManager getSharedInstance]getSchoolByName:schoolName];
     
-    NSLog(@"%@", self.schoolInfo);
-}
-
-
-- (void) setGameInformation
-{
-    self.gameInfo = @{@"month": @"8", @"day": @"26", @"hour": @"16"};
-    
-}
-
-#pragma mark StoryBoard Events
-
-- (void) viewDidAppear:(BOOL)animated
-{
-    [self verifySchoolIsSelected];
-    
     // Set Title Bar Info
     [self setNavigationBarStylesAndTitle];
     [self setupRecordLabel];
@@ -59,6 +43,23 @@
     
     // Populate Data
     [self buildSchoolView];
+    
+}
+
+
+- (void) setGameInformation
+{
+    self.gameInfo = @{@"month": [self.schoolInfo objectForKey:@"gamemonthnum"], @"day": [self.schoolInfo objectForKey:@"gamedaynum"], @"hour": [self.schoolInfo objectForKey:@"gamehournum"]};
+    
+}
+
+#pragma mark StoryBoard Events
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self verifySchoolIsSelected];
+    
+    
     
 }
 
@@ -104,10 +105,7 @@
 - (void) setupRecordLabel
 {
     UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
-    UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
-    
-    self.recordLabel.backgroundColor = accentColor;
-    self.recordBoldLabel.backgroundColor = accentColor;
+    //UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
     
     CALayer *layer = [self.recordLabel layer];
     CALayer *boldLayer = [self.recordBoldLabel layer];
@@ -127,15 +125,18 @@
     [layer addSublayer:bottomBorder];
     [boldLayer addSublayer:bottomBorder2];
     
+    [self.recordBoldLabel setFont:[UIFont fontWithName:@"Exo-Bold" size:14]];
+    [self.recordLabel setFont:[UIFont fontWithName:@"Exo-Regular" size:14]];
+    
     NSString *labelString = nil;
     
     if ([[self.schoolInfo objectForKey:@"aprank"] length] == 0)
     {
-        labelString = [NSString stringWithFormat:@"0-0/0-0"];
+        labelString = [NSString stringWithFormat:@"0-0 / 0-0"];
     }
     else
     {
-        labelString = [NSString stringWithFormat:@"0-0/0-0 (%@)", [self.schoolInfo objectForKey:@"aprank"]];
+        labelString = [NSString stringWithFormat:@"0-0 / 0-0 (%@)", [self.schoolInfo objectForKey:@"aprank"]];
     }
     
     self.recordLabel.text = labelString;
@@ -144,9 +145,7 @@
 - (void) setupGameLabel
 {
     UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
-    UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
-    
-    self.nextGameLabel.backgroundColor = accentColor;
+    //UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
     
     CALayer *layer = [self.nextGameLabel layer];
     CALayer *bottomBorder = [CALayer layer];
@@ -156,10 +155,9 @@
     [bottomBorder setBorderColor:[UIColor blackColor].CGColor];
     [layer addSublayer:bottomBorder];
     
-    self.nextGameLabel.text = [NSString stringWithFormat:@"Next Game\n%@\n%@ (%@)",
+    self.nextGameLabel.text = [NSString stringWithFormat:@"Next Game\n%@\n%@",
                                [self.schoolInfo objectForKey:@"gameday"],
-                               [self.schoolInfo objectForKey:@"matchup"],
-                               [self.schoolInfo objectForKey:@"aprank"]];
+                               [self.schoolInfo objectForKey:@"matchup"]];
 }
 
 - (void) setNavigationBarStylesAndTitle
@@ -202,9 +200,17 @@
         {
             NSString *temp = [[hourlyData objectForKey:@"temp"] objectForKey: @"english"];
             NSString *condition_label = [hourlyData objectForKey: @"condition"];
-            NSString *icon_url = [hourlyData objectForKey: @"icon_url"];
+            //NSString *icon_url = [hourlyData objectForKey: @"icon_url"];
+            NSString *icon = [hourlyData objectForKey: @"icon"];
             
-            NSDictionary *weatherObj = @{@"temp": temp, @"condition_label": condition_label, @"icon_url": icon_url};
+            //NSDictionary *weatherObj = @{@"temp": temp, @"condition_label": condition_label, @"icon_url": icon_url};
+            
+            self.weatherLabel.text = condition_label;
+            self.weatherTempLabel.text = temp;
+            [self.weatherTempLabel setFont:[UIFont fontWithName:@"Exo-Regular" size:24]];
+            
+            NSString *imagePath = [[NSBundle mainBundle] pathForResource:icon ofType:@"png" inDirectory:@"weatherIcons"];
+            self.weatherImage.image = [UIImage imageWithContentsOfFile:imagePath];
             
         }
     }
@@ -258,6 +264,10 @@
         
         [self presentViewController:mySLComposerSheet animated:YES completion:nil];
     }
+}
+
+- (IBAction)btnBuyTickets:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.schoolInfo objectForKey:@"tickets"]]];
 }
 
 #pragma mark Utility Methods
