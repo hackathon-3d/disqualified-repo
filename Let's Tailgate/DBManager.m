@@ -30,6 +30,13 @@ static sqlite3_stmt *statement = nil;
     
     NSString *dbPath = [self getDBPath];
     BOOL success = [fileManager fileExistsAtPath:dbPath];
+
+    // REMOVE IN FINAL!!!
+    if (success)
+    {
+        [[NSFileManager defaultManager] removeItemAtPath:dbPath error:&error];
+        success = NO;
+    }
     
     if(!success) {
         
@@ -128,14 +135,18 @@ static sqlite3_stmt *statement = nil;
   NSString *dbPath = [self getDBPath];
   if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
   {
-    NSString *querySQL = [NSString stringWithFormat:@"select mascot,city,state,conference,color1,color2,aprank,tweet,colorfont,statecode,cityweather from school where name='%@'",name];
+    NSString *querySQL = [NSString stringWithFormat:@"select mascot,city,state,conference,color1,color2,aprank,tweet,colorfont,statecode,cityweather from school where name like '%@%%'",name];
     const char *query_stmt = [querySQL UTF8String];
-    if (sqlite3_prepare_v2(database,
-                           query_stmt, -1, &statement, NULL) == SQLITE_OK)
+      
+      
+    int status = sqlite3_prepare_v2(database,
+                                    query_stmt, -1, &statement, NULL);
+
+    if (status  == SQLITE_OK)
     {
         if (sqlite3_step(statement) == SQLITE_ROW)
         {
-            NSMutableDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:name, @"name", nil];
+            NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:name, @"name", nil];
             NSString *mascot = [[NSString alloc] initWithUTF8String:
                               (const char *) sqlite3_column_text(statement, 0)];
             [data setObject:mascot forKey:@"mascot"];
@@ -172,6 +183,10 @@ static sqlite3_stmt *statement = nil;
             return data;
         }
         sqlite3_reset(statement);
+    }
+    else
+    {
+        NSAssert1(0,@"Error %s", sqlite3_errmsg(database));
     }
   }
   return nil;
