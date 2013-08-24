@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13A558" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WI1-ge-ZuV">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rF5-Te-qrF"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WI1-ge-ZuV" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="AQW-R7-g3a"/>
+                            <constraint firstItem="rF5-Te-qrF" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="BzO-sM-GdF"/>
+                            <constraint firstItem="WI1-ge-ZuV" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Dly-Ej-fft"/>
+                            <constraint firstItem="rF5-Te-qrF" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dLu-1O-Kni"/>
+                            <constraint firstItem="WI1-ge-ZuV" firstAttribute="top" secondItem="rF5-Te-qrF" secondAttribute="bottom" type="default" id="gVd-6c-Nza"/>
+                            <constraint firstItem="rF5-Te-qrF" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="lSz-hC-O6k"/>
+                            <constraint firstItem="WI1-ge-ZuV" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="nS1-5q-TIE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navBar" destination="rF5-Te-qrF" id="sLJ-vC-g8r"/>
+                        <outlet property="webView" destination="WI1-ge-ZuV" id="dd3-bG-fSG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
