@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
 
@@ -15,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBarTitle;
 
 - (IBAction)btnChangeTeam:(id)sender;
+- (IBAction)btnTweet:(id)sender;
 
 @end

@@ -25,11 +25,32 @@
     [self.navBarTitle setTitle: [self getSchoolName]];
 }
 
+#pragma mark StoryBoard Events
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self buildSchoolView];
+}
+
 #pragma mark Data Wrappers
+
+- (void) buildSchoolView
+{
+    [self.navBarTitle setTitle: [self getSchoolName]];
+}
 
 - (NSString *) getSchoolName
 {
-    return @"University of South Carolina";
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    NSString *schoolName = [userPreferences objectForKey:@"userSchool"];
+    NSLog(@"School Name: %@", schoolName);
+    
+    if (schoolName == nil)
+    {
+        [self performSegueWithIdentifier:@"segueChangeTeam" sender:self];
+    }
+    
+    return schoolName;
 }
 
 #pragma mark UIWebViewDelegate Methods
@@ -58,6 +79,43 @@
     return YES;
 }
 
+#pragma mark UI Actions
+
+
+- (IBAction)btnChangeTeam:(id)sender {
+    // This is a segue to a modal
+}
+
+
+- (IBAction)btnTweet:(id)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+        SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        NSString *message = [[NSString alloc] initWithFormat: @"Anyone going to see the game this week? #%@", [self getSchoolName]];
+        [mySLComposerSheet setInitialText:message];
+        
+        //[mySLComposerSheet addImage:[UIImage imageNamed:@"myImage.png"]];
+        //[mySLComposerSheet addURL:[NSURL URLWithString:@"http://stackoverflow.com/questions/12503287/tutorial-for-slcomposeviewcontroller-sharing"]];
+        
+        [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            // Not Necessary yet
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    break;
+                case SLComposeViewControllerResultDone:
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+        
+        [self presentViewController:mySLComposerSheet animated:YES completion:nil];
+    }
+}
+
 #pragma mark House Keeping
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +124,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)btnChangeTeam:(id)sender {
-}
+
 @end

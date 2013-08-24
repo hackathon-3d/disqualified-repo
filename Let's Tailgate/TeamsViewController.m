@@ -66,8 +66,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSLog(@"Number of Schools: %d", [self.schools count]);
     return [self.schools count];
 }
 
@@ -83,9 +81,7 @@
     
     NSDictionary *school = [self.schools objectAtIndex: indexPath.row];
     
-    
     cell.textLabel.text = [NSString stringWithFormat:@"%@", school];
-
     
     return cell;
 }
@@ -94,7 +90,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = cell.textLabel.text;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     
+    [userPreferences setObject:cellText forKey:@"userSchool"];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

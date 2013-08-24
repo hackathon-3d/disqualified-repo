@@ -41,7 +41,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yba-HP-ZZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500" y="100"/>
+            <point key="canvasLocation" x="823" y="16"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5">
@@ -57,9 +57,14 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rF5-Te-qrF">
                                 <items>
                                     <navigationItem title="Title" id="BG8-vM-JAT">
+                                        <barButtonItem key="leftBarButtonItem" title="Tweet" id="ACb-n3-avN">
+                                            <connections>
+                                                <action selector="btnTweet:" destination="2" id="Y36-Wt-Lxi"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Change Team" id="7nR-GD-ssX">
                                             <connections>
-                                                <segue destination="exD-rg-kIX" kind="modal" id="tVe-fj-Cj6"/>
+                                                <segue destination="exD-rg-kIX" kind="modal" identifier="segueChangeTeam" modalTransitionStyle="coverVertical" id="tVe-fj-Cj6"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
