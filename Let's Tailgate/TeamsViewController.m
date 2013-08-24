@@ -33,24 +33,39 @@
     
     // Initialize Data
     
-    self.schools = [[NSMutableArray alloc] init];
+    self.schools = [[NSMutableDictionary alloc] init];
+    self.conferences = [[NSMutableArray alloc] init];
     
     [self loadSchools];
+    [self loadConferences];
+    
+    [self.tableView reloadData];
     
 }
 
 - (void) loadSchools
 {
+    NSArray *conferenceList = [[DBManager getSharedInstance]getConferenceList];
     
-    NSArray *qdata = [[DBManager getSharedInstance]getSchoolList];
-
-    for (NSString *name in qdata) {
-       [self.schools addObject:name];
+    for (NSString *confName in conferenceList)
+    {
+        if (confName != NULL)
+        {
+            [self.schools setObject:[[DBManager getSharedInstance]getSchoolByConference:confName] forKey:confName];
+        }
     }
     
-    [self.tableView reloadData];
-    
 }
+
+- (void) loadConferences
+{
+    NSArray *qdata = [[DBManager getSharedInstance]getConferenceList];
+    
+    for (NSString *name in qdata) {
+        [self.conferences addObject:name];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -63,12 +78,17 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [self.conferences count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.conferences objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.schools count];
+    return [[self.schools objectForKey:[self.conferences objectAtIndex: section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,7 +101,7 @@
                                       reuseIdentifier:CellIdentifier];
     }
     
-    NSDictionary *school = [self.schools objectAtIndex: indexPath.row];
+    NSDictionary *school = [[self.schools objectForKey: [self.conferences objectAtIndex:indexPath.section]] objectAtIndex: indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", school];
     

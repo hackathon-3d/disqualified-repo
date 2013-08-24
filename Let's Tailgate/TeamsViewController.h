@@ -11,7 +11,7 @@
 @interface TeamsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray *conferences;
-@property NSMutableArray *schools;
+@property NSMutableDictionary *schools;
 
 
 @end
