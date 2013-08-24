@@ -12,6 +12,7 @@
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
 
+@property NSString *schoolName;
 @property NSDictionary *gameInfo;
 @property TwitterFeed *twitterFeed;
 

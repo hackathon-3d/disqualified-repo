@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Let&apos;s Tailgate/TwitterFeed.m"
-         timestampString = "399019826.444151"
+         timestampString = "399020783.312096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "27"
-         endingLineNumber = "27"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
          landmarkName = "-hasAccessToTwitter"
          landmarkType = "5">
       </FileBreakpoint>

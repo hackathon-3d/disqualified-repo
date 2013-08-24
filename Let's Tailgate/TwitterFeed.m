@@ -12,7 +12,6 @@
 
 NSString *apiURL = @"https://api.twitter.com/1.1/search/tweets.json";
 NSString const *tweetCount = @"25";
-NSString const *tweetKeyword = @"#reggae";
 
 - (TwitterFeed *) init
 {
@@ -39,11 +38,10 @@ NSString const *tweetKeyword = @"#reggae";
 - (void) authorizeTwitterAccount:(void(^)(void))blk
 {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier: SLServiceTypeTwitter];
-    
-    NSLog(@"Checking twitter account");
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier: ACAccountTypeIdentifierTwitter];
     
     [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+
         if (granted)
         {
             NSArray *accounts = [accountStore accountsWithAccountType:accountType];
@@ -77,7 +75,6 @@ NSString const *tweetKeyword = @"#reggae";
 
 - (void) appendTwitterMessages:(NSArray *) data
 {
-    NSLog(@"%@", data);
     self.twitterMessages = [[NSMutableArray alloc] initWithArray: data];
 }
 
@@ -89,8 +86,6 @@ NSString const *tweetKeyword = @"#reggae";
         NSDictionary *params = @{@"q" : hashTag,
                                  @"count" : tweetCount,
                                  @"since_id": self.lastMessageID};
-        
-        NSLog(@"Getting messages since ID: %@", self.lastMessageID);
         
         SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                 requestMethod:SLRequestMethodGET

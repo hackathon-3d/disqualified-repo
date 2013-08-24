@@ -1,0 +1,268 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Exo', sans-serif;	
+	color: #333;
+	background: #efefef;
+}
+
+td, th, li, p, div {
+	font-size: 14px;	
+	line-height: 20px;
+}
+
+a, a:visited {
+	color: blue;
+}
+
+a:hover, a:visited:hover {
+	color: purple;
+}
+
+.clearer {
+	clear: both;	
+}
+
+/* ------------------------------------ GENERAL --------------*/
+.wrapper {
+	width: 100%;
+	overflow: hidden;	
+}
+
+.overallHeader {
+	height: 44px;
+	line-height: 44px;
+	text-align: center;	
+	background: #333;
+	color: #fff;
+	text-transform: uppercase;
+	position: relative;
+	z-index: 10;
+}
+
+.header {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;	
+	margin: 0;
+}
+
+.blur {
+	-webkit-filter: blur(3px);	
+}
+
+.row1 {
+	margin: 0;	
+	position: relative;
+}
+
+.standing {
+	padding: 7px 4%;
+	margin: 0 0 0 0;
+	background: #eaeaea;
+	width: 92.5%;
+	float: right;	
+	background-image: url(../images/transWhite.png);
+	position: relative;
+	z-index: 10;
+	border-bottom: 1px solid #ddd;
+}
+
+.standing .header {
+	display: inline-block;	
+}
+
+.weather {	
+	background: #eaeaea;
+	padding: 5px 4% 6px;
+	margin: 0 0 0 0;
+	width: 31.5%;
+	float: left;
+	text-align: center;
+	height: 118px;
+	background-image: url(../images/transWhite.png);
+	position: relative;
+	z-index: 5;
+}
+
+.weatherIcon {
+	margin: 0 auto 1px;
+	display: block;
+	width: 67%;
+}
+
+.weatherTemp {
+	font-size: 28px;
+	line-height: 30px;
+	display: block;
+	margin: 0 0 1px;	
+	font-weight: 700;
+}
+
+.iconPlus {
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	opacity: .5;	
+}
+
+.weatherOver {
+	position: absolute;
+	top: 37px;
+	left: 0;
+	width: 0;
+	height: 129px;
+	background: url(../images/transBlack.png);
+	color: #fff;	
+	z-index: 10;
+	overflow: hidden;
+}
+
+.weatherOverBox {
+	width: 17%;
+	padding: 7px 4% 0;
+	float: left;
+	text-align: center;	
+}
+
+.weatherOverTime {
+	font-size: 14px;
+}
+
+.weatherOverIcon {
+	width: 100%;
+	display: block;
+	margin: 0 0 3px;	
+}
+
+.weatherOverTemp {
+	font-size: 24px;
+	line-height: 26px;
+	font-weight: 700;	
+}
+
+.nextGame {
+	padding: 7px 4%;
+	margin: 0 0 0 0;
+	background: #eaeaea;
+	width: 53.7%;
+	float: right;
+	background-image: url(../images/transWhite.png);
+	position: relative;
+	z-index: 5;
+}
+
+.buyTix {
+	padding: 0 4%;
+	margin: 0 0 0 0;
+	background: #eaeaea;
+	width: 53.7%;
+	float: right;	
+	border-top: 1px solid #fff;
+	background-image: url(../images/transWhite.png);
+	position: relative;
+	z-index: 5;
+}
+
+a.buyTixBtn {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 700;
+	color: #111;
+	height: 54px;
+	line-height: 54px;	
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+.twitterDiv {
+	padding: 15px 4%;
+	margin: 0;
+	height: 281px;	
+	border-top: 1px solid #fff;
+	background-image: url(../images/transWhite.png);
+	overflow: scroll;
+}
+
+.twitterRow {
+	padding: 0 0 21px;
+	margin: 0 0 21px;
+	border-bottom: 1px dashed #333;	
+}
+
+.twitterAvatar {
+	width: 15%;
+	float: left;	
+}
+
+.twitterAvatar img {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.twitterContent {
+	width: 81%;
+	float: right;
+}
+
+.twitterContent p {
+	margin: 0;	
+	line-height: 18px;
+}
+
+.twitterName {
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 18px;	
+	margin: 0;
+}
+
+.twitterHandle {
+	color: #bbb;	
+	font-weight: 400;
+}
+
+.twitterDate {
+	color: #bbb;
+}
+
+/*---------------------------------- COLORS -------------*/
+.baseColorBorder {
+	border-color: #FF4A00;	
+}
+
+.baseColorText {
+	color: #FF4A00;	
+}
+
+.baseColorBg {
+	background-color: #FF4A00;	
+}
+
+.baseColorLink a,
+.baseColorLink a:visited,
+.twitterContent a,
+.twitterContent a:visited {
+	color: #FF4A00;	
+}
+
+.accentColorBorder {
+	border-color: #0021A5;	
+}
+
+.accentColorText {
+	color: #0021A5;	
+}
+
+.accentColorBg {
+	background-color: #0021A5;
+}	
+
+.accentColorLink a,
+.accentColorLink a:visited {
+	color: #0021A5;	
+}

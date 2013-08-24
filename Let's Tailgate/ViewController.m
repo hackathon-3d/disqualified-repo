@@ -21,21 +21,33 @@
     
     self.twitterFeed = [[TwitterFeed alloc] init];
     
-    
     // Initialize Controls
     [self.webView setDelegate:self];
     
-    [self.navBarTitle setTitle: [self getSchoolName]];
-    
-    // Populate Data
-    [self setGameInformation];
-    [self getWeatherData];
-    [self getTwitterFeed];
 }
 
-- (void) setSchoolInformation
+- (void) verifySchoolIsSelected
 {
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    NSString *schoolName = [userPreferences objectForKey:@"userSchool"];
     
+    if ([schoolName length] == 0)
+    {
+        [self performSegueWithIdentifier:@"segueChangeTeam" sender:self];
+    }
+    
+    self.schoolName = schoolName;
+
+}
+
+- (void) loadWebViewInterface
+{
+    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"www"];
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:htmlFile];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    
+    [self.webView loadRequest:request];
 }
 
 - (void) getTwitterFeed
@@ -53,7 +65,15 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    [self verifySchoolIsSelected];
+    
+    // Set Title Bar Info
+    [self.navBarTitle setTitle: self.schoolName];
+    [self loadWebViewInterface];
+    
+    // Populate Data
     [self buildSchoolView];
+    
 }
 
 #pragma mark Data Wrappers
@@ -105,22 +125,8 @@
     [self setGameInformation];
     [self getWeatherData];
     [self getTwitterFeed];
-    [self.navBarTitle setTitle: [self getSchoolName]];
+    [self.navBarTitle setTitle: self.schoolName];
     
-}
-
-- (NSString *) getSchoolName
-{
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    NSString *schoolName = [userPreferences objectForKey:@"userSchool"];
-    NSLog(@"School Name: %@", schoolName);
-    
-    if (schoolName == nil)
-    {
-        [self performSegueWithIdentifier:@"segueChangeTeam" sender:self];
-    }
-    
-    return schoolName;
 }
 
 #pragma mark UIWebViewDelegate Methods
@@ -162,7 +168,7 @@
         
         SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
-        NSString *message = [[NSString alloc] initWithFormat: @"Anyone going to see the game this week? #%@", [self getSchoolName]];
+        NSString *message = [[NSString alloc] initWithFormat: @"Anyone going to see the game this week? #%@", self.schoolName];
         [mySLComposerSheet setInitialText:message];
         
         //[mySLComposerSheet addImage:[UIImage imageNamed:@"myImage.png"]];
