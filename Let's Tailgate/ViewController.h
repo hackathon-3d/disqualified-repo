@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
 #import "TwitterFeed.h"
+#import "DBManager.h"
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
 
 @property NSString *schoolName;
+@property NSDictionary *schoolInfo;
 @property NSDictionary *gameInfo;
 @property TwitterFeed *twitterFeed;
 

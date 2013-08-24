@@ -56,7 +56,11 @@ a:hover, a:visited:hover {
 
 .row1 {
 	margin: 0;	
-	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	border-bottom: 1px solid #fff;
 }
 
 .standing {
@@ -181,11 +185,13 @@ a.buyTixBtn {
 
 .twitterDiv {
 	padding: 15px 4%;
-	margin: 0;
-	height: 281px;	
-	border-top: 1px solid #fff;
+	margin: 0;	
 	background-image: url(../images/transWhite.png);
-	overflow: scroll;
+	position: absolute;
+	top: 168px;
+	left: 0;
+	width: 92.5%;
+	z-index: 1;
 }
 
 .twitterRow {

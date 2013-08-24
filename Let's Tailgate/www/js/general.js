@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$('.nextGame').addClass('blur');
 		$('.weather').addClass('blur');
 		$('.buyTix').addClass('blur');
-	})
+	});
 	
 	$('.weatherOver').click(function() {
 		$('.weatherOver').animate({
@@ -22,7 +22,8 @@ $(document).ready(function() {
 		$('.nextGame').removeClass('blur');
 		$('.weather').removeClass('blur');
 		$('.buyTix').removeClass('blur');
-	})
+	});
+
 
 });
 
@@ -32,4 +33,20 @@ $(window).load(function() {
 
 });
 
-})(jQuery)
+})(jQuery);
+
+
+function updateWeather(data)
+{
+
+}
+
+function setTeamInformation(data)
+{
+	alert(data);
+}
+
+function setTeamColors(baseColor, accentColor)
+{
+	
+}

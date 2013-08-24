@@ -30,7 +30,6 @@
     
     self.clearsSelectionOnViewWillAppear = NO;
     
-    
     // Initialize Data
     
     self.schools = [[NSMutableDictionary alloc] init];
@@ -102,7 +101,7 @@
     }
     
     NSDictionary *school = [[self.schools objectForKey: [self.conferences objectAtIndex:indexPath.section]] objectAtIndex: indexPath.row];
-    
+        
     cell.textLabel.text = [NSString stringWithFormat:@"%@", school];
     
     return cell;
