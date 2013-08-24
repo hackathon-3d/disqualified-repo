@@ -7,6 +7,7 @@
 //
 
 #import "TeamsViewController.h"
+#import "DBManager.h"
 
 @implementation TeamsViewController
 
@@ -40,11 +41,20 @@
 
 - (void) loadSchools
 {
+    
+    NSArray *qdata = [[DBManager getSharedInstance]getSchoolList];
 
+    for (NSString *name in qdata) {
+       [self.schools addObject:name];
+    }
+        
+    
+    /*
     [self.schools addObject:@"Alabama"];
     [self.schools addObject:@"Clemson University"];
     [self.schools addObject:@"Georgia"];
     [self.schools addObject:@"University of South Carolina"];
+    */
     
     [self.tableView reloadData];
     

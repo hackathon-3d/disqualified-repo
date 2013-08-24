@@ -20,6 +20,8 @@
 		46EB919F17C840FE0038B07E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46EB919D17C840FE0038B07E /* MainStoryboard.storyboard */; };
 		46EB91A217C840FE0038B07E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB91A117C840FE0038B07E /* ViewController.m */; };
 		46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB91AB17C84C900038B07E /* TeamsViewController.m */; };
+		BC0BB97017C86E630045F965 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BB96F17C86E630045F965 /* DBManager.m */; };
+		BC0BB97217C871630045F965 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0BB97117C871630045F965 /* libsqlite3.dylib */; };
 		BCE16F5617C86B7900104584 /* create.sql in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5317C86B7900104584 /* create.sql */; };
 		BCE16F5717C86B7900104584 /* makedb.sh in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5417C86B7900104584 /* makedb.sh */; };
 		BCE16F5817C86B7900104584 /* master.db in Resources */ = {isa = PBXBuildFile; fileRef = BCE16F5517C86B7900104584 /* master.db */; };
@@ -45,6 +47,9 @@
 		46EB91A117C840FE0038B07E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		46EB91AA17C84C900038B07E /* TeamsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsViewController.h; sourceTree = "<group>"; };
 		46EB91AB17C84C900038B07E /* TeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsViewController.m; sourceTree = "<group>"; };
+		BC0BB96E17C86E630045F965 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		BC0BB96F17C86E630045F965 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		BC0BB97117C871630045F965 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BCE16F5317C86B7900104584 /* create.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = create.sql; sourceTree = "<group>"; };
 		BCE16F5417C86B7900104584 /* makedb.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = makedb.sh; sourceTree = "<group>"; };
 		BCE16F5517C86B7900104584 /* master.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = master.db; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0BB97217C871630045F965 /* libsqlite3.dylib in Frameworks */,
 				463B78C717C85D0700D0E904 /* Social.framework in Frameworks */,
 				46EB918617C840FE0038B07E /* UIKit.framework in Frameworks */,
 				46EB918817C840FE0038B07E /* Foundation.framework in Frameworks */,
@@ -68,6 +74,7 @@
 		46EB917917C840FE0038B07E = {
 			isa = PBXGroup;
 			children = (
+				BC0BB97117C871630045F965 /* libsqlite3.dylib */,
 				46EB918B17C840FE0038B07E /* Let's Tailgate */,
 				46EB918417C840FE0038B07E /* Frameworks */,
 				46EB918317C840FE0038B07E /* Products */,
@@ -104,6 +111,8 @@
 				46EB91AA17C84C900038B07E /* TeamsViewController.h */,
 				46EB91AB17C84C900038B07E /* TeamsViewController.m */,
 				46EB918C17C840FE0038B07E /* Supporting Files */,
+				BC0BB96E17C86E630045F965 /* DBManager.h */,
+				BC0BB96F17C86E630045F965 /* DBManager.m */,
 			);
 			path = "Let's Tailgate";
 			sourceTree = "<group>";
@@ -198,6 +207,7 @@
 				46EB919617C840FE0038B07E /* AppDelegate.m in Sources */,
 				46EB91A217C840FE0038B07E /* ViewController.m in Sources */,
 				46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */,
+				BC0BB97017C86E630045F965 /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
