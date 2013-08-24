@@ -19,5 +19,5 @@
 -(NSArray*)getSchoolList;
 -(NSArray*)getConferenceList;
 -(NSArray*)getSchoolByConference:(NSString *) conference;
-
+-(NSMutableDictionary*)getSchoolByName:(NSString *)name;
 @end
