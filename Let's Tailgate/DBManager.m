@@ -128,7 +128,7 @@ static sqlite3_stmt *statement = nil;
   NSString *dbPath = [self getDBPath];
   if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
   {
-    NSString *querySQL = [NSString stringWithFormat:@"select mascot,city,state,conference,color1,color2,aprank,tweet,colorfont from school where name='%@'",name];
+    NSString *querySQL = [NSString stringWithFormat:@"select mascot,city,state,conference,color1,color2,aprank,tweet,colorfont,statecode,cityweather from school where name='%@'",name];
     const char *query_stmt = [querySQL UTF8String];
     if (sqlite3_prepare_v2(database,
                            query_stmt, -1, &statement, NULL) == SQLITE_OK)
@@ -163,6 +163,12 @@ static sqlite3_stmt *statement = nil;
             NSString *colorfont = [[NSString alloc] initWithUTF8String:
                               (const char *) sqlite3_column_text(statement, 8)];
             [data setObject:colorfont forKey:@"colorfont"];
+            NSString *statecode = [[NSString alloc] initWithUTF8String:
+                                   (const char *) sqlite3_column_text(statement, 8)];
+            [data setObject:statecode forKey:@"statecode"];
+            NSString *cityweather = [[NSString alloc] initWithUTF8String:
+                                   (const char *) sqlite3_column_text(statement, 8)];
+            [data setObject:cityweather forKey:@"cityweather"];
             return data;
         }
         sqlite3_reset(statement);
