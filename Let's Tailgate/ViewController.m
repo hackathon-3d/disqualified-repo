@@ -100,14 +100,14 @@
     [layer addSublayer:bottomBorder];
     [layer addSublayer:rightBorder];
     
-    self.weatherLabel.text = @"Sunny";
+    //[self getWeatherData];
+    
     
 }
 
 - (void) setupRecordLabel
 {
     UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
-    //UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
     
     CALayer *layer = [self.recordLabel layer];
     CALayer *boldLayer = [self.recordBoldLabel layer];
@@ -174,7 +174,7 @@
 - (void) getWeatherData
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *wUrl = [NSString stringWithFormat:@"http://api.wunderground.com/api/fca034c5c94b1ad7/hourly10day/q/%@/%@.json",
+        NSString *wUrl = [NSString stringWithFormat:@"http://api.wunderground.com/api/2617ddc68ba44ee2/hourly10day/q/%@/%@.json",
                                                     [self.schoolInfo objectForKey:@"statecode"],
                                                     [self.schoolInfo objectForKey:@"cityweather"]];
         NSURL *dataURL = [NSURL URLWithString:wUrl];
@@ -203,10 +203,8 @@
         {
             NSString *temp = [[hourlyData objectForKey:@"temp"] objectForKey: @"english"];
             NSString *condition_label = [hourlyData objectForKey: @"condition"];
-            //NSString *icon_url = [hourlyData objectForKey: @"icon_url"];
             NSString *icon = [hourlyData objectForKey: @"icon"];
             
-            //NSDictionary *weatherObj = @{@"temp": temp, @"condition_label": condition_label, @"icon_url": icon_url};
             
             self.weatherLabel.text = condition_label;
             [self.weatherLabel setFont:[UIFont fontWithName:@"Exo-Regular" size:16]];
@@ -224,8 +222,6 @@
 - (void) buildSchoolView
 {
     [self setGameInformation];
-    [self getWeatherData];
-    [self.navBarTitle setTitle: self.schoolName];
     
 }
 
@@ -245,8 +241,6 @@
         NSString *message = [[NSString alloc] initWithFormat: @"Anyone going to see the game this week? #%@", [self.schoolInfo objectForKey:@"tweet"]];
         [mySLComposerSheet setInitialText:message];
         
-        //[mySLComposerSheet addImage:[UIImage imageNamed:@"myImage.png"]];
-        //[mySLComposerSheet addURL:[NSURL URLWithString:@"http://stackoverflow.com/questions/12503287/tutorial-for-slcomposeviewcontroller-sharing"]];
         
         [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
             
