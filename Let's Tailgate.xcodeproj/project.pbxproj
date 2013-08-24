@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		463B78C717C85D0700D0E904 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B78C617C85D0700D0E904 /* Social.framework */; };
+		463B78CA17C8788B00D0E904 /* TwitterFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 463B78C917C8788B00D0E904 /* TwitterFeed.m */; };
 		46EB918617C840FE0038B07E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918517C840FE0038B07E /* UIKit.framework */; };
 		46EB918817C840FE0038B07E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918717C840FE0038B07E /* Foundation.framework */; };
 		46EB918A17C840FE0038B07E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EB918917C840FE0038B07E /* CoreGraphics.framework */; };
@@ -29,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		463B78C617C85D0700D0E904 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		463B78C817C8788B00D0E904 /* TwitterFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterFeed.h; sourceTree = "<group>"; };
+		463B78C917C8788B00D0E904 /* TwitterFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeed.m; sourceTree = "<group>"; };
 		46EB918217C840FE0038B07E /* Let's Tailgate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Tailgate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46EB918517C840FE0038B07E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46EB918717C840FE0038B07E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +106,10 @@
 		46EB918B17C840FE0038B07E /* Let's Tailgate */ = {
 			isa = PBXGroup;
 			children = (
+				BC0BB96E17C86E630045F965 /* DBManager.h */,
+				BC0BB96F17C86E630045F965 /* DBManager.m */,
+				463B78C817C8788B00D0E904 /* TwitterFeed.h */,
+				463B78C917C8788B00D0E904 /* TwitterFeed.m */,
 				46EB919417C840FE0038B07E /* AppDelegate.h */,
 				46EB919517C840FE0038B07E /* AppDelegate.m */,
 				46EB919D17C840FE0038B07E /* MainStoryboard.storyboard */,
@@ -111,8 +118,6 @@
 				46EB91AA17C84C900038B07E /* TeamsViewController.h */,
 				46EB91AB17C84C900038B07E /* TeamsViewController.m */,
 				46EB918C17C840FE0038B07E /* Supporting Files */,
-				BC0BB96E17C86E630045F965 /* DBManager.h */,
-				BC0BB96F17C86E630045F965 /* DBManager.m */,
 			);
 			path = "Let's Tailgate";
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				46EB91A217C840FE0038B07E /* ViewController.m in Sources */,
 				46EB91AC17C84C900038B07E /* TeamsViewController.m in Sources */,
 				BC0BB97017C86E630045F965 /* DBManager.m in Sources */,
+				463B78CA17C8788B00D0E904 /* TwitterFeed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
