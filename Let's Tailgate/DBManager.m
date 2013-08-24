@@ -178,5 +178,19 @@ static sqlite3_stmt *statement = nil;
 }
 
 
+-(NSString*)getSchoolValue:
+(NSString*) school
+                andKeyName:(NSString*) keyname {
+    return nil;
+}
+
+-(BOOL*)setSchoolValue:
+(NSString*) school
+                andKeyName:(NSString*) keyname
+               andKeyValue:(NSString*) keyvalue {
+    return FALSE;
+}
+
+
 
 @end

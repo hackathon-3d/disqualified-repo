@@ -20,4 +20,11 @@
 -(NSArray*)getConferenceList;
 -(NSArray*)getSchoolByConference:(NSString *) conference;
 -(NSMutableDictionary*)getSchoolByName:(NSString *)name;
+-(NSString*)getSchoolValue:
+                   (NSString*) school
+        andKeyName:(NSString*) keyname;
+-(BOOL*)setSchoolValue:
+                   (NSString*) school
+                andKeyName:(NSString*) keyname
+               andKeyValue:(NSString*) keyvalue;
 @end
