@@ -6,18 +6,16 @@
 //  Copyright (c) 2013 Grey Bull Studios. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
 @interface TwitterFeed : NSObject
-{
-    @private
-    ACAccount *twitterAccount;
-    NSString *lastMessageID;
-}
 
 @property NSMutableArray *twitterMessages;
+@property ACAccountStore *accountStore;
+@property ACAccount *twitterAccount;
+@property NSString *lastMessageID;
 
 - (NSString *) getTwitterMessagesAsJSON:(NSString *) filter;
 
