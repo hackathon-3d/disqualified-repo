@@ -146,7 +146,7 @@
 
 - (void) setupGameLabel
 {
-    UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
+    //UIColor *baseColor = [self colorWithHexString:[self.schoolInfo objectForKey:@"color1"]];
     //UIColor *accentColor = [self colorWithHexStringLoweredOpacity:[self.schoolInfo objectForKey:@"color2"]];
     
 //    CALayer *layer = [self.nextGameLabel layer];
