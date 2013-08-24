@@ -23,7 +23,7 @@
 -(NSString*)getSchoolValue:
                    (NSString*) school
         andKeyName:(NSString*) keyname;
--(BOOL*)setSchoolValue:
+-(BOOL)setSchoolValue:
                    (NSString*) school
                 andKeyName:(NSString*) keyname
                andKeyValue:(NSString*) keyvalue;

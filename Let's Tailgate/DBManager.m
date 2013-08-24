@@ -164,10 +164,10 @@ static sqlite3_stmt *statement = nil;
                               (const char *) sqlite3_column_text(statement, 8)];
             [data setObject:colorfont forKey:@"colorfont"];
             NSString *statecode = [[NSString alloc] initWithUTF8String:
-                                   (const char *) sqlite3_column_text(statement, 8)];
+                                   (const char *) sqlite3_column_text(statement, 9)];
             [data setObject:statecode forKey:@"statecode"];
             NSString *cityweather = [[NSString alloc] initWithUTF8String:
-                                   (const char *) sqlite3_column_text(statement, 8)];
+                                   (const char *) sqlite3_column_text(statement, 10)];
             [data setObject:cityweather forKey:@"cityweather"];
             return data;
         }
@@ -181,14 +181,65 @@ static sqlite3_stmt *statement = nil;
 -(NSString*)getSchoolValue:
 (NSString*) school
                 andKeyName:(NSString*) keyname {
+    NSString *dbPath = [self getDBPath];
+    if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
+    {
+
+      NSString *querySQL = [NSString stringWithFormat:@"select keyvalue from school_data where school='%@' and keyname='%@'",school,keyname];
+      const char *query_stmt = [querySQL UTF8String];
+      if (sqlite3_prepare_v2(database,
+                           query_stmt, -1, &statement, NULL) == SQLITE_OK)
+      {
+          if (sqlite3_step(statement) == SQLITE_ROW)
+          {
+              NSString *keyvalue = [[NSString alloc] initWithUTF8String:
+                                  (const char *) sqlite3_column_text(statement, 0)];
+              return keyvalue;
+          }
+          else
+          {
+              querySQL = [NSString stringWithFormat:@"select keyvalue from school_data where school='' and keyname='%@'",keyname];
+              query_stmt = [querySQL UTF8String];
+              if (sqlite3_prepare_v2(database,
+                                     query_stmt, -1, &statement, NULL) == SQLITE_OK)
+              {
+                  if (sqlite3_step(statement) == SQLITE_ROW)
+                  {
+                      NSString *defkeyvalue = [[NSString alloc] initWithUTF8String:
+                                            (const char *) sqlite3_column_text(statement, 0)];
+                      return defkeyvalue;
+                  }
+              }
+          }
+      }
+    }
+    
     return nil;
 }
 
--(BOOL*)setSchoolValue:
+-(BOOL)setSchoolValue:
 (NSString*) school
                 andKeyName:(NSString*) keyname
                andKeyValue:(NSString*) keyvalue {
-    return FALSE;
+    NSString *dbPath = [self getDBPath];
+    if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:@"insert or replace into school_data(school,keyname,keyvalue) values ('%@','%@','%@')",school,keyname,keyvalue];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(database,
+                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            if (SQLITE_DONE != sqlite3_step(statement))
+            {
+                return NO;
+            }
+            sqlite3_reset(statement);
+            sqlite3_finalize(statement);
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 
